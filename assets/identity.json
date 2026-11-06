@@ -1,0 +1,21 @@
+{
+  "name": "Elio",
+  "command": "elio",
+  "selectedName": 25,
+  "logo": {
+    "source": "wordmark",
+    "text": "Elio",
+    "file": "elio-logo.svg"
+  },
+  "icon": {
+    "source": "wordmark",
+    "text": "Elio",
+    "file": "app-icon.svg"
+  },
+  "mascot": {
+    "id": "M39",
+    "concept": "Obelisk",
+    "file": "elio-mascot.svg"
+  },
+  "accent": "#a4c4bb"
+}

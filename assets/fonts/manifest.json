@@ -1,0 +1,922 @@
+[
+  {
+    "id": "cascadia",
+    "package": "@fontsource/cascadia-mono",
+    "name": "Cascadia Mono",
+    "family": "AT Cascadia Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/cascadia-mono",
+    "files": [
+      {
+        "path": "cascadia-mono/cascadia-mono-symbols2-400-italic.woff2",
+        "sha256": "ce2027adb7e667592cbdeeb39b6f97a7baffd98fbc8ca9d826221f350b293724"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-ext-400-italic.woff2",
+        "sha256": "3e306e0c64d625dde4696625b17f448110681034432887937fdb38ba134dde0b"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-400-italic.woff2",
+        "sha256": "04e94fdb341b7b13aca7687de0b036fea8704f8e1e017e05a1acdfb2d735c831"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-symbols2-700-italic.woff2",
+        "sha256": "744e5fbfbb95dc7195361afcb06f92325773e8b6f4ce8721401863c5c75537b9"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-ext-700-italic.woff2",
+        "sha256": "b12a4e05b142d3951a803d69f8b973293ed19da6983d4ba44063e4d75f7e0e9a"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-700-italic.woff2",
+        "sha256": "29b23f3fd786800a553f18d1f4d378d6029c086c2a281f4137817a87ec641681"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-symbols2-400-normal.woff2",
+        "sha256": "1da9dc31d81420bd0c30bf6e477309b07a7bbd6a980117dee3d880e5af594f82"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-ext-400-normal.woff2",
+        "sha256": "2ddb7b42227e03eaaba9d6a6eb19d07dcf1433e447fc6ac15425a24398631f01"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-400-normal.woff2",
+        "sha256": "6a40b3d39a01e8973ef3d953a6e1f2959956a5c6c2a5bbd6c654380f39aadffb"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-symbols2-700-normal.woff2",
+        "sha256": "0bb9359788020a7cbd16f20fc074811ba89eaea805ed385fc9232c187d35bae3"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-ext-700-normal.woff2",
+        "sha256": "9f419e54c476941d3170459d748edfce9f0879c7c55f704ebfc70d1c352a59a6"
+      },
+      {
+        "path": "cascadia-mono/cascadia-mono-latin-700-normal.woff2",
+        "sha256": "e28ef8e1372a5a42bd05698dfd24cde8ed94ed6f02b01fffffeaa30afce58508"
+      }
+    ]
+  },
+  {
+    "id": "cascadia-code",
+    "package": "@fontsource/cascadia-code",
+    "name": "Cascadia Code",
+    "family": "AT Cascadia Code",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/cascadia-code",
+    "files": [
+      {
+        "path": "cascadia-code/cascadia-code-symbols2-400-italic.woff2",
+        "sha256": "3f588037af4ebd52fb79d39d014d2e56f0074f80aa2866dad6a4ad7d20621ae4"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-ext-400-italic.woff2",
+        "sha256": "bf9bd2425f5f1e1e6823bf306befe67321e40222b706e0bce8ba805bf6e99463"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-400-italic.woff2",
+        "sha256": "3d1edf03d2d963fd8dc330c61a4707d2d72bcec3250b28838b7170d3ecb8c40e"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-symbols2-700-italic.woff2",
+        "sha256": "758c74c82c40a448d1deefa308cc3d986725820a8872c86fc6aa18bf54bb50a7"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-ext-700-italic.woff2",
+        "sha256": "a63fe6b5ce3292d6d02b253294c8ba11a93e3ceb6de47259a8ac6f08893e675a"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-700-italic.woff2",
+        "sha256": "f26fe762a27bd06bc2db92189ec78c60f8f65fd598637a68561b7536630a082f"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-symbols2-400-normal.woff2",
+        "sha256": "70a9fc86571dbe6d1399dabeec4c6ffc40d919a30cbfaaeccd9f25ab42b862ea"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-ext-400-normal.woff2",
+        "sha256": "4f18b4a534da23c3ba9d5216bbb452628765540e4cfc3523e2c850ba189b0be9"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-400-normal.woff2",
+        "sha256": "923fd5a61f1618f4597422b66172d0d8615577f81eb9382724390ec8cb8bfd5d"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-symbols2-700-normal.woff2",
+        "sha256": "2e901be4670574798533997a916f4c422250fa0eca9dd074d3a2037eb5cce85c"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-ext-700-normal.woff2",
+        "sha256": "2c7f2b23e3fe2d85437b2249c19a55a42cf84d260339e0c11136145e960dd1bd"
+      },
+      {
+        "path": "cascadia-code/cascadia-code-latin-700-normal.woff2",
+        "sha256": "db2452f9551ba42a0b2b5ef27a3e9438737922fbdaabd71a2446eaf96fe81ad9"
+      }
+    ]
+  },
+  {
+    "id": "jetbrains",
+    "package": "@fontsource/jetbrains-mono",
+    "name": "JetBrains Mono",
+    "family": "AT JetBrains Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/jetbrains-mono",
+    "files": [
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-ext-400-italic.woff2",
+        "sha256": "a53b6b29b1621cdf51140761869e160521fc566a4a9f312d9b92e7178d433bc7"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-400-italic.woff2",
+        "sha256": "87ddac4a62229787528cf4ac3fa58137b62a9aec364c44fc0f40470bcda9efba"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-ext-700-italic.woff2",
+        "sha256": "ebfe512fe16186a55f5576fec93d877718e25f90be5ad12223ea624498c33b1e"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-700-italic.woff2",
+        "sha256": "2cd42fe8f872ef7e06156fe04338b23fc4ec532e66450c8e931db43473c0306c"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-ext-400-normal.woff2",
+        "sha256": "505dfba8ecbe77e82765f36d317ed7ef4ac42719dc5f4ae68d1c483fd22d0d14"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-400-normal.woff2",
+        "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-ext-700-normal.woff2",
+        "sha256": "45a606d88f72bc0afae4d1a6988e3dba3a5e77ee51aa3b550e37c31c728f4d2d"
+      },
+      {
+        "path": "jetbrains-mono/jetbrains-mono-latin-700-normal.woff2",
+        "sha256": "d0d4e818808f2a0ba39b2b09d1989366f63494e295f003c7ef436697378507e8"
+      }
+    ]
+  },
+  {
+    "id": "fira",
+    "package": "@fontsource/fira-code",
+    "name": "Fira Code",
+    "family": "AT Fira Code",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/fira-code",
+    "files": [
+      {
+        "path": "fira-code/fira-code-symbols2-400-normal.woff2",
+        "sha256": "e4a28f799aebc24f7f8aa22ce42a512ff4a7ce15edcb46f2a6aef073b46169b9"
+      },
+      {
+        "path": "fira-code/fira-code-latin-ext-400-normal.woff2",
+        "sha256": "587dcb11badf47fb0abd0415c12ca57da9ff365f665cede22d6523f1cfd6cc61"
+      },
+      {
+        "path": "fira-code/fira-code-latin-400-normal.woff2",
+        "sha256": "6dc9da171ccea71d525379ee1cbf51d143e31acac330a251bb71b3d6060e687c"
+      },
+      {
+        "path": "fira-code/fira-code-symbols2-700-normal.woff2",
+        "sha256": "3c76ce4aceb40e84a1dd7ad0f297d84bf2a76e3db231fd2739cce00f9c387ce2"
+      },
+      {
+        "path": "fira-code/fira-code-latin-ext-700-normal.woff2",
+        "sha256": "f7a3c0d506bcae50f35e8a517158992158a182af047ae4398c8c9367dfa1d5ea"
+      },
+      {
+        "path": "fira-code/fira-code-latin-700-normal.woff2",
+        "sha256": "987306692df7c81d1ffa1efc98414dfaae10de5e178cfba8e22e92ad9c872e43"
+      }
+    ]
+  },
+  {
+    "id": "source",
+    "package": "@fontsource/source-code-pro",
+    "name": "Source Code Pro",
+    "family": "AT Source Code Pro",
+    "version": "5.3.1",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/source-code-pro",
+    "files": [
+      {
+        "path": "source-code-pro/source-code-pro-latin-ext-400-italic.woff2",
+        "sha256": "25d4a7e0238b1a01a7af552e7c515b7f837ce89dadf679d3a39e99ab5c436606"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-400-italic.woff2",
+        "sha256": "62cfd505807fcb0647885704753f297cb20fef708fbc2b4627fb36667fe78c71"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-ext-700-italic.woff2",
+        "sha256": "cc0e4ec8158ffe690c181d8590d7ee9e7dd6bd5ae7dc425519609a5349fb6916"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-700-italic.woff2",
+        "sha256": "18180587ce834101ff702f4077ab745a448f035ba2c79c143498d05890f563f1"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-ext-400-normal.woff2",
+        "sha256": "1d42025d5d98f073bf0baba96fd5edb020ac8c9ed4d98b550f22ad80267ecaa3"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-400-normal.woff2",
+        "sha256": "75aa8cacfd459d58d7c093f3ff0ab8745cc878dfc93c5d4cda052791aeace878"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-ext-700-normal.woff2",
+        "sha256": "311d9e29e713240131a673e03c598b6e54fcead05b4d086bd50a52cb52b3df71"
+      },
+      {
+        "path": "source-code-pro/source-code-pro-latin-700-normal.woff2",
+        "sha256": "34faf509fa4130733093f36100f76670ff7d93d4889746de11a62a0fe8d82084"
+      }
+    ]
+  },
+  {
+    "id": "ibm",
+    "package": "@fontsource/ibm-plex-mono",
+    "name": "IBM Plex Mono",
+    "family": "AT IBM Plex Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/ibm-plex-mono",
+    "files": [
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-ext-400-italic.woff2",
+        "sha256": "1b07eee6df7d26b31864581c2365131d384077605e0b63ae67c4a0a64363a6de"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-400-italic.woff2",
+        "sha256": "0840095faae86403735a8c04014b72cb29e7923646b222b360b7e8252932e4e3"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-ext-700-italic.woff2",
+        "sha256": "18c8dc28d75ecbda23c88fb11126852b2232916ec2e6d6dc0225def886a0cc98"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-700-italic.woff2",
+        "sha256": "2bb0d4c82652472446ed1a5a89a0553f2db1e4ea17cbda66a45e690899d83e91"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-ext-400-normal.woff2",
+        "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-400-normal.woff2",
+        "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-ext-700-normal.woff2",
+        "sha256": "5b9b81f54dd69635c7adcaacd4c4545a73fe4809c528e22734b238a83a74135f"
+      },
+      {
+        "path": "ibm-plex-mono/ibm-plex-mono-latin-700-normal.woff2",
+        "sha256": "4f84d86cfd060f4ded334358ff8a4c81d4db2ed5addd568359d693f44a87765a"
+      }
+    ]
+  },
+  {
+    "id": "roboto-mono",
+    "package": "@fontsource/roboto-mono",
+    "name": "Roboto Mono",
+    "family": "AT Roboto Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/roboto-mono",
+    "files": [
+      {
+        "path": "roboto-mono/roboto-mono-latin-ext-400-italic.woff2",
+        "sha256": "5deb0b03027599395fa49424334c383b39b01ebd0b66ad77ae5c863d13ba0b14"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-400-italic.woff2",
+        "sha256": "e4a744be99f104ecbd224af9a91da2a7cadd76e1b9cde550b26e341d2e465349"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-ext-700-italic.woff2",
+        "sha256": "5317ff42c10ad2360d9f9c7f4da5b4395c5c4321097837eb5275fb0c4b569e98"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-700-italic.woff2",
+        "sha256": "21eb25612d5c76e78c41bacf87adf6dbb44f20e4ee7f75be6c260e512310c087"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-ext-400-normal.woff2",
+        "sha256": "3d1e72bf2f7f579e5680e87a492bf14f156c01d09da741d5bb657f2841787157"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-400-normal.woff2",
+        "sha256": "e03013e0baa5690a803c188da2214d920c3245b25ad78421ecc8ae86cd842ae9"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-ext-700-normal.woff2",
+        "sha256": "8458ffb1652db9f2f466c228153373bda0b7be5a42a232b3ed2b8c03cbda7e9f"
+      },
+      {
+        "path": "roboto-mono/roboto-mono-latin-700-normal.woff2",
+        "sha256": "283fbef73f42c21722c5a3efc7a44b0c38aac1ada665602b2144c13ed58c0e99"
+      }
+    ]
+  },
+  {
+    "id": "inconsolata",
+    "package": "@fontsource/inconsolata",
+    "name": "Inconsolata",
+    "family": "AT Inconsolata",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/inconsolata",
+    "files": [
+      {
+        "path": "inconsolata/inconsolata-latin-ext-400-normal.woff2",
+        "sha256": "9650fe3e6dc3721080a25b2ae1edff2486bfd78fc03b2d36a909998d940e4e2b"
+      },
+      {
+        "path": "inconsolata/inconsolata-latin-400-normal.woff2",
+        "sha256": "9d5a0480d2bd3e43b124bf8f36782c8fc079f9f8b023c672bff67e9ceffc236b"
+      },
+      {
+        "path": "inconsolata/inconsolata-latin-ext-700-normal.woff2",
+        "sha256": "079240795730b589046a3eebd7f4f1d45b28640b65cfd9b9181948d796a0048f"
+      },
+      {
+        "path": "inconsolata/inconsolata-latin-700-normal.woff2",
+        "sha256": "a9d822c4d749ab072f3715224311da3c8302b070a8df41d477090c145a361017"
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-mono",
+    "package": "@fontsource/ubuntu-mono",
+    "name": "Ubuntu Mono",
+    "family": "AT Ubuntu Mono",
+    "version": "5.3.0",
+    "license": "UFL-1.0",
+    "source": "https://fontsource.org/fonts/ubuntu-mono",
+    "files": [
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-ext-400-italic.woff2",
+        "sha256": "614dc1811136434ef861bad6cc2244c9f545ba8b71433a30c58bf96818a40572"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-400-italic.woff2",
+        "sha256": "99cb1e5beee165e283a366d6be6a22db8cc2841954842f2b8875ffdd7ba7b591"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-ext-700-italic.woff2",
+        "sha256": "2fbb3d6ee6d4891b210100cea9aa6fe4afd211f92140fac223d82bbae3d32027"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-700-italic.woff2",
+        "sha256": "ac9fd840137bd923483b37f7824f3d20ecfdcc05c5956852d2ca23d2881cf3a8"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-ext-400-normal.woff2",
+        "sha256": "ae99f02f4bd5d5f7c0301b260dfbba4ad6a80312fa27104e9b8c4c1e1b1e2dbd"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-400-normal.woff2",
+        "sha256": "afc6d2fb4f49b53ee31b13c23607739d5f2a42dba2f9f72f70144bd3b5b1a8e6"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-ext-700-normal.woff2",
+        "sha256": "0febcbee44985d8b9046b0404b854466aaa8eb7f8893632b4f60b9f38524e297"
+      },
+      {
+        "path": "ubuntu-mono/ubuntu-mono-latin-700-normal.woff2",
+        "sha256": "c8c44cf3c409c4d55324efe420c918684dcd18478abc7aa6ad2c67e3f495888f"
+      }
+    ]
+  },
+  {
+    "id": "space-mono",
+    "package": "@fontsource/space-mono",
+    "name": "Space Mono",
+    "family": "AT Space Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/space-mono",
+    "files": [
+      {
+        "path": "space-mono/space-mono-latin-ext-400-italic.woff2",
+        "sha256": "a7642ae8cb7a389cb781e6c63d799e62932d916089afac98087f3af76b050a11"
+      },
+      {
+        "path": "space-mono/space-mono-latin-400-italic.woff2",
+        "sha256": "a5fb49042e7305918585561ab5fbd587d708ce74b0f54b56751e2b1151922d19"
+      },
+      {
+        "path": "space-mono/space-mono-latin-ext-700-italic.woff2",
+        "sha256": "0db253a66a34fcb80b80c5f8a400055550348e7c379e67349b07471d7b81a773"
+      },
+      {
+        "path": "space-mono/space-mono-latin-700-italic.woff2",
+        "sha256": "e84908e18ffcfab7d46490f4fd9781bc701cbd76aa3af4cb3e625858fd39ff3d"
+      },
+      {
+        "path": "space-mono/space-mono-latin-ext-400-normal.woff2",
+        "sha256": "44ad50c760fa8f5b62da3d489edb40adebabaf97988b9b0adbbc3f0be859050a"
+      },
+      {
+        "path": "space-mono/space-mono-latin-400-normal.woff2",
+        "sha256": "fb4a81a2d0a893e5c38c394a7e716a1cef0b24610a0af49c96f6d529bd66bf2b"
+      },
+      {
+        "path": "space-mono/space-mono-latin-ext-700-normal.woff2",
+        "sha256": "52edd9a8959ec3e68d618e2a4757182c0e61bfeea61679850cad8744a68cadf3"
+      },
+      {
+        "path": "space-mono/space-mono-latin-700-normal.woff2",
+        "sha256": "2d46bd159b53f55c41167a4f1540a074649464194fd1e416f5b4694a6c0f282c"
+      }
+    ]
+  },
+  {
+    "id": "cousine",
+    "package": "@fontsource/cousine",
+    "name": "Cousine",
+    "family": "AT Cousine",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/cousine",
+    "files": [
+      {
+        "path": "cousine/cousine-latin-ext-400-italic.woff2",
+        "sha256": "00a451cd145f0214697ec65e89b536cb031938a154c6b8231a07c348b19b66e6"
+      },
+      {
+        "path": "cousine/cousine-latin-400-italic.woff2",
+        "sha256": "1f797cdf757dc474a18e8b7378fb49eaab06f11c239ec40db6064cd5cb49febc"
+      },
+      {
+        "path": "cousine/cousine-latin-ext-700-italic.woff2",
+        "sha256": "2560a663d5783006594df49d96a55953dbec7816755be1f72865f001b8c94898"
+      },
+      {
+        "path": "cousine/cousine-latin-700-italic.woff2",
+        "sha256": "7ac046711b0716288354f50cf697d61743a101507e791547cf05d24db7fbaf22"
+      },
+      {
+        "path": "cousine/cousine-latin-ext-400-normal.woff2",
+        "sha256": "486dc7aa9c2ea713284d3e6a4c046e5ca47940ec24bfe213b7f7a8b0d3d98ec6"
+      },
+      {
+        "path": "cousine/cousine-latin-400-normal.woff2",
+        "sha256": "fb542bb367b20289e71b682dc45d8f01de5b0a0658464db9053801f30e7c13a8"
+      },
+      {
+        "path": "cousine/cousine-latin-ext-700-normal.woff2",
+        "sha256": "38adaadaf3c82ea0aaecd28626492fb0f99a75e619ed50c82646ca39993cc092"
+      },
+      {
+        "path": "cousine/cousine-latin-700-normal.woff2",
+        "sha256": "63c3bc173bf483b579052da1a6532d84d65d0fbfdd081f1ce50d4fe895343625"
+      }
+    ]
+  },
+  {
+    "id": "dm-mono",
+    "package": "@fontsource/dm-mono",
+    "name": "DM Mono",
+    "family": "AT DM Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/dm-mono",
+    "files": [
+      {
+        "path": "dm-mono/dm-mono-latin-ext-400-italic.woff2",
+        "sha256": "58f35f8c336e13598f5614df3c9c4b8531e7aa5844f791de0f48b34e18d60cf2"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-400-italic.woff2",
+        "sha256": "350b68680c016cf06d06516eeaebf341979b250cd023b0d35a795e62f6f471fd"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-ext-500-italic.woff2",
+        "sha256": "f537c59f2c9521953afe949c481eea93a0daa3c843d7e01848dd5afa3969444e"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-500-italic.woff2",
+        "sha256": "8646989c2ee61b283a65e97f7c99362c94d12b2b51cbb1d8af75a83d29a8a002"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-ext-400-normal.woff2",
+        "sha256": "a52e19ebe0398c9c0f8fa28a0c5e9a6bc324f35d9f0881c9aa407d10af447175"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-400-normal.woff2",
+        "sha256": "e1896b13b2b1bb112fac2f9571bd6c40e118746e77a4511edbf43fbb41bf3e1e"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-ext-500-normal.woff2",
+        "sha256": "8711f938c3f04f91e35ae64ebc7f2eecd800d2ae1c3542f6c837c758a50422f5"
+      },
+      {
+        "path": "dm-mono/dm-mono-latin-500-normal.woff2",
+        "sha256": "9964608a849396bd00c4bfd7034afe03486469dcf20b4f6b8cbdfdd310369951"
+      }
+    ]
+  },
+  {
+    "id": "red-hat-mono",
+    "package": "@fontsource/red-hat-mono",
+    "name": "Red Hat Mono",
+    "family": "AT Red Hat Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/red-hat-mono",
+    "files": [
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-ext-400-italic.woff2",
+        "sha256": "204c3e344dcc52d5fc1e88545b68ec67fe56d2499b2005d4427e792a78602f2e"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-400-italic.woff2",
+        "sha256": "c43c41c0557a3794d7f8dcdacdad10c56e76420e21ed92060615c26347a46e30"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-ext-700-italic.woff2",
+        "sha256": "fb73a4abfdfe3c21cf143f774f0731033d8d0f8f5c1122d8a60e38b03a6510ed"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-700-italic.woff2",
+        "sha256": "25704cd09016d9c21a2b2fcb851e786cf6a15120be662879eae2e1870382f68f"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-ext-400-normal.woff2",
+        "sha256": "cbf640bdfc086ce930458ec1ff3eef9782eb9a7af3789931e41f373a1421e4cf"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-400-normal.woff2",
+        "sha256": "392fbbdfabe89c965489cbb7738abce86aff180b12b75280026dfe3f6005b189"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-ext-700-normal.woff2",
+        "sha256": "52b1f51baa4c3ce53218ee4c4eba41c9189ae9c4d5593854ffac5e3b1fcd04a2"
+      },
+      {
+        "path": "red-hat-mono/red-hat-mono-latin-700-normal.woff2",
+        "sha256": "ba2e0090744f128536177669b27ac6a7231f4e8f2848a14469227362b88f7aa7"
+      }
+    ]
+  },
+  {
+    "id": "overpass-mono",
+    "package": "@fontsource/overpass-mono",
+    "name": "Overpass Mono",
+    "family": "AT Overpass Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/overpass-mono",
+    "files": [
+      {
+        "path": "overpass-mono/overpass-mono-latin-ext-400-normal.woff2",
+        "sha256": "4ecfe417f7e6eca69f44c3725d99f3190dcf0fdc6348eca1e591decb896a3d83"
+      },
+      {
+        "path": "overpass-mono/overpass-mono-latin-400-normal.woff2",
+        "sha256": "13fd3b6cdf5288362a1ead10aeb2defc0b6b35a6630f92b7e805123de23649f3"
+      },
+      {
+        "path": "overpass-mono/overpass-mono-latin-ext-700-normal.woff2",
+        "sha256": "ff66a63c1cac2b98922c6e7810542d123074388c246fbb025662ab93bd64527e"
+      },
+      {
+        "path": "overpass-mono/overpass-mono-latin-700-normal.woff2",
+        "sha256": "b2365d25d7bbc7622ad869a329becaf1adb860b367ebd1885e0a8b570bd353d8"
+      }
+    ]
+  },
+  {
+    "id": "pt-mono",
+    "package": "@fontsource/pt-mono",
+    "name": "PT Mono",
+    "family": "AT PT Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/pt-mono",
+    "files": [
+      {
+        "path": "pt-mono/pt-mono-latin-ext-400-normal.woff2",
+        "sha256": "b5e539036e0fedbb1bc408355993f36d264132b96008a5152f05b1f858d9120e"
+      },
+      {
+        "path": "pt-mono/pt-mono-latin-400-normal.woff2",
+        "sha256": "b4e2aee32a6162b66a40f6fc7ac09962b0385e467ca8b143d92a091b16eaff6d"
+      }
+    ]
+  },
+  {
+    "id": "noto-sans-mono",
+    "package": "@fontsource/noto-sans-mono",
+    "name": "Noto Sans Mono",
+    "family": "AT Noto Sans Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/noto-sans-mono",
+    "files": [
+      {
+        "path": "noto-sans-mono/noto-sans-mono-latin-ext-400-normal.woff2",
+        "sha256": "59b04df56c666f79ca173fc721a9986d3ace531cec5a96d0e060d21e54dd12f6"
+      },
+      {
+        "path": "noto-sans-mono/noto-sans-mono-latin-400-normal.woff2",
+        "sha256": "1e4b885e90f8e794d33fff5095497e4ce847d8c5fa2b7810d1b10a770d0f8e34"
+      },
+      {
+        "path": "noto-sans-mono/noto-sans-mono-latin-ext-700-normal.woff2",
+        "sha256": "3121e8d02d8063220e8723c0bf29faf55472e15a04874f4b0d13c95407510059"
+      },
+      {
+        "path": "noto-sans-mono/noto-sans-mono-latin-700-normal.woff2",
+        "sha256": "20ef1d988a28230959f5414bc3712297a0598ad5d77a25f00717a514f202c0c5"
+      }
+    ]
+  },
+  {
+    "id": "anonymous-pro",
+    "package": "@fontsource/anonymous-pro",
+    "name": "Anonymous Pro",
+    "family": "AT Anonymous Pro",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/anonymous-pro",
+    "files": [
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-ext-400-italic.woff2",
+        "sha256": "f1d2395c376cbe6ebfaf29c6846de11b45c1f4fa813391b7177493d0a7b8adc4"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-400-italic.woff2",
+        "sha256": "88db60c2ab3b72bea862f8787f65e3d357b0d3bbcee5c6ef8fcfe9e09557a2a5"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-ext-700-italic.woff2",
+        "sha256": "35305d71136f55bfebffc80d8e5cadb414d8164dbdafc5c772be9739c3c5e9e0"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-700-italic.woff2",
+        "sha256": "65d756222b3b1abbef9e6b6217fb5c03e42df3437301c67516ccac5f4c50a819"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-ext-400-normal.woff2",
+        "sha256": "91ae985651b5d2d6d940f40815d94ec99f0eab4b383b8c98ecf10ccf7f9777b6"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-400-normal.woff2",
+        "sha256": "148b358d5c6a32ff44aa901fdd583519210675846edb6ccf8913a402054196a0"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-ext-700-normal.woff2",
+        "sha256": "b40402c5b2062c37f84d240d6f888b2dd31dc5522ca62e997359bbd5cfbd7dfc"
+      },
+      {
+        "path": "anonymous-pro/anonymous-pro-latin-700-normal.woff2",
+        "sha256": "375e14fc0e64a2339788b0e6cf9a7b2ac9eef20314cfab80373eded4708f7dfc"
+      }
+    ]
+  },
+  {
+    "id": "cutive-mono",
+    "package": "@fontsource/cutive-mono",
+    "name": "Cutive Mono",
+    "family": "AT Cutive Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/cutive-mono",
+    "files": [
+      {
+        "path": "cutive-mono/cutive-mono-latin-ext-400-normal.woff2",
+        "sha256": "1d92e1b73cfae9b9803e375b86cee123956e4fcb168349a321a56362adb00cbf"
+      },
+      {
+        "path": "cutive-mono/cutive-mono-latin-400-normal.woff2",
+        "sha256": "86bac2b356efacde8dbb66e5e931b660a78585c6142cf4a61567f313a9f16271"
+      }
+    ]
+  },
+  {
+    "id": "oxygen-mono",
+    "package": "@fontsource/oxygen-mono",
+    "name": "Oxygen Mono",
+    "family": "AT Oxygen Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/oxygen-mono",
+    "files": [
+      {
+        "path": "oxygen-mono/oxygen-mono-latin-ext-400-normal.woff2",
+        "sha256": "78ed1f0e79af599f0b171e1e9f6cf8e0c5ddb42b413217d22497bb477819672f"
+      },
+      {
+        "path": "oxygen-mono/oxygen-mono-latin-400-normal.woff2",
+        "sha256": "456a761c26026525b4ad0b1fda169cb42e0144ab51b352f95f500b0d89b4b47a"
+      }
+    ]
+  },
+  {
+    "id": "spline-sans-mono",
+    "package": "@fontsource/spline-sans-mono",
+    "name": "Spline Sans Mono",
+    "family": "AT Spline Sans Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/spline-sans-mono",
+    "files": [
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-ext-400-italic.woff2",
+        "sha256": "fcd7630499e35482cca0c05d81eaff0080d6a920bdc3f2d5f79a6d061c5b26fe"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-400-italic.woff2",
+        "sha256": "96276b636ad82ac0fc5f9c49da2035611d783d04043ffe37ed292a230ec3e1c7"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-ext-700-italic.woff2",
+        "sha256": "25b71ff65a6022977352f337ac02f6bd7c4504ab70259ae8f7bb443dfea43c3d"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-700-italic.woff2",
+        "sha256": "2cc02add5ba41a07a680205b4617a031469e7b5cadd677903006d918e1795afa"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-ext-400-normal.woff2",
+        "sha256": "011b0d5173f19deaeaba00f5070430a8d6f2ed65c85cc5e82d383ff2df76ea4a"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-400-normal.woff2",
+        "sha256": "af7360e11effa088510c57bd6c327cacd1e53ce8b0f3ef1e2445284df777e5d6"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-ext-700-normal.woff2",
+        "sha256": "cb0894d20a713b4c5a3c21e8ba8b8be7e8d56189e1b363d1fff4159707579212"
+      },
+      {
+        "path": "spline-sans-mono/spline-sans-mono-latin-700-normal.woff2",
+        "sha256": "435763d772ec844bcdbb9b8c81937908feaa4690f816200f1e5965d85bf01635"
+      }
+    ]
+  },
+  {
+    "id": "sometype-mono",
+    "package": "@fontsource/sometype-mono",
+    "name": "Sometype Mono",
+    "family": "AT Sometype Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/sometype-mono",
+    "files": [
+      {
+        "path": "sometype-mono/sometype-mono-latin-ext-400-italic.woff2",
+        "sha256": "bcd3d4ad03be57ee133fdff31daf0449ebf5f51e29e8d14133356a29c91865b8"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-400-italic.woff2",
+        "sha256": "118cc094795ca7f70e643ddd45be0106cdcdba3afd7ba91fbb5d7897a1b9bdb9"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-ext-700-italic.woff2",
+        "sha256": "7767495bf77905be35043f99aa0ac184240e2356031fff19fdc7cc72ef1a975c"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-700-italic.woff2",
+        "sha256": "021036ed2b08e8d2ccce7e770dd25b8f2597e56af9ac17d2a4199bfc090d96c1"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-ext-400-normal.woff2",
+        "sha256": "a467270a93a4f13300e6ac87410414ef6b4bf762e150fca8f04d49d1a2b50abf"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-400-normal.woff2",
+        "sha256": "9719b185dc14ff3e39ee87cc277f7679c4c9b95c10c1dbf7882adcf9c582f685"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-ext-700-normal.woff2",
+        "sha256": "5a6fe5174c804ab15e2e51fe9f15a113752c6b0029e5e69ac71cb871f37cf161"
+      },
+      {
+        "path": "sometype-mono/sometype-mono-latin-700-normal.woff2",
+        "sha256": "781dc919a2adedb66c2c4afc6b1228855c612ebb50b3c1332266a8c0671b1375"
+      }
+    ]
+  },
+  {
+    "id": "azeret-mono",
+    "package": "@fontsource/azeret-mono",
+    "name": "Azeret Mono",
+    "family": "AT Azeret Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/azeret-mono",
+    "files": [
+      {
+        "path": "azeret-mono/azeret-mono-latin-ext-400-italic.woff2",
+        "sha256": "cffd89140f4a58b4ca25409f57ab560162b8d904812fa729b77fd19ca7d3ef82"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-400-italic.woff2",
+        "sha256": "10c8aeb4d211002cfc0aa84eefd97b17b5244c1f798264a852f0904c553ccff2"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-ext-700-italic.woff2",
+        "sha256": "3adeab062e463fefb4f14730c365797fe8821292d706c668c98f8e263eac84d0"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-700-italic.woff2",
+        "sha256": "cf85ef3095c2d86d002d003a585da14e9b68685505b5da398b6b2407e081a734"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-ext-400-normal.woff2",
+        "sha256": "3636903d3541fc091d909f0d307ae31059a2d5b6fdc50e1298083db4bec210ab"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-400-normal.woff2",
+        "sha256": "83f738bd44f3d7542f2adf6c78d2285b85c55fd349a44ded40f844fbcfbe1d81"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-ext-700-normal.woff2",
+        "sha256": "056a93279c8ca060a2e3a165289c54f52d35f04a26d689453e53d8a2f2f37c74"
+      },
+      {
+        "path": "azeret-mono/azeret-mono-latin-700-normal.woff2",
+        "sha256": "4bf017f985b6f4a8191c8e4871ab5e2e14f561c3a4fb4f2ca28196368d27c20d"
+      }
+    ]
+  },
+  {
+    "id": "martian-mono",
+    "package": "@fontsource/martian-mono",
+    "name": "Martian Mono",
+    "family": "AT Martian Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/martian-mono",
+    "files": [
+      {
+        "path": "martian-mono/martian-mono-latin-ext-400-normal.woff2",
+        "sha256": "6ef45f40197467aecc59ffb3fffdb15931f49e97d1b418cdaccda631b061b6b3"
+      },
+      {
+        "path": "martian-mono/martian-mono-latin-400-normal.woff2",
+        "sha256": "bb677c9c5cf5b384b5e4a1fd86755a47e0cbafe6bc70a9ba458b5e13e1d7a5c0"
+      },
+      {
+        "path": "martian-mono/martian-mono-latin-ext-700-normal.woff2",
+        "sha256": "b383bb88a98ae0e7d2769504e1f226908c9996161b8bd144d2f90b832c14e0d8"
+      },
+      {
+        "path": "martian-mono/martian-mono-latin-700-normal.woff2",
+        "sha256": "51d46132d1f75155b6dea2d8fc6221365cbdfb41b3eac52ebc17eda7c53c6575"
+      }
+    ]
+  },
+  {
+    "id": "victor-mono",
+    "package": "@fontsource/victor-mono",
+    "name": "Victor Mono",
+    "family": "AT Victor Mono",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "source": "https://fontsource.org/fonts/victor-mono",
+    "files": [
+      {
+        "path": "victor-mono/victor-mono-latin-ext-400-italic.woff2",
+        "sha256": "30eea0ee89e7f15bf1b9ee3551fa4e3e587f68df29badd39f8c35b9e7965a2ed"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-400-italic.woff2",
+        "sha256": "27cf5fb106198f946b3379454f237d209093935f23dd87fbd542c969923086d1"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-ext-700-italic.woff2",
+        "sha256": "b556f8d9abd2b6f53b189d9c5a98a1d80bb2fe32ed6d4b250afc7a9dd57912aa"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-700-italic.woff2",
+        "sha256": "86514ab5b20d16cf53c31dcf6b9dfa699ad6a4306e79ed80bd2f78a762a0b2f2"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-ext-400-normal.woff2",
+        "sha256": "cd1912fee3d624789f08d34a6f7af60ed2376d187b83a786538fbf8680250c6b"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-400-normal.woff2",
+        "sha256": "1c96d4706ad792e7740ba352e709380a7328e1d5b853d4d909b771c04be1a94a"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-ext-700-normal.woff2",
+        "sha256": "2714894b31b3b08979e4c08c589abe79a4d92b9b26fc5548ad04764615582602"
+      },
+      {
+        "path": "victor-mono/victor-mono-latin-700-normal.woff2",
+        "sha256": "9761443990cb1b68fb7cf3d249e3998a644275793d6b11769e2ba8b286ae8b07"
+      }
+    ]
+  }
+]

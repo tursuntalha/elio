@@ -1,0 +1,10 @@
+# One line ending in the repository, whatever the contributor's Git settings are.
+* text=auto eol=lf
+*.exe binary
+*.ico binary
+*.png binary
+*.woff2 binary
+*.woff binary
+*.ttf binary
+# Bundled font files and their licenses are copied verbatim from the upstream packages.
+assets/fonts/** -text

@@ -1,0 +1,14 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const { spawnSync } = require('node:child_process');
+if (process.platform !== 'win32') throw new Error('Bu kısayol kurulumu Windows içindir.');
+const root = path.resolve(__dirname, '..');
+if (!fs.existsSync(path.join(root, 'desktop', 'Elio.exe'))) require('./build-launcher.cjs').buildLauncher();
+const env = { ...process.env }; delete env.ELECTRON_RUN_AS_NODE;
+const result = spawnSync(require('electron'), [path.join(__dirname, 'windows-shortcuts.cjs')], { env, encoding: 'utf8', windowsHide: true });
+if (result.status !== 0) throw new Error(result.error?.message || result.stderr || result.stdout || 'Kısayollar oluşturulamadı.');
+const line = result.stdout.split(/\r?\n/).find(value => value.startsWith('{'));
+if (!line) throw new Error('Windows kısayol bilgileri alınamadı.');
+const installed = JSON.parse(line);
+console.log('Masaüstü kısayolu hazır: ' + installed.desktop);
+console.log('Başlat menüsü kısayolu hazır: ' + installed.startMenu);

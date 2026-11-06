@@ -1,0 +1,11 @@
+[
+  { "key": "f1", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001bOP" } },
+  { "key": "f2", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001bOQ" } },
+  { "key": "f3", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001bOR" } },
+  { "key": "f4", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001bOS" } },
+  { "key": "f6", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001b[17~" } },
+  { "key": "f7", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001b[18~" } },
+  { "key": "f8", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001b[19~" } },
+  { "key": "f9", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001b[20~" } },
+  { "key": "f10", "command": "workbench.action.terminal.sendSequence", "when": "terminalFocus && terminalAltBufferActive", "args": { "text": "\u001b[21~" } }
+]

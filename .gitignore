@@ -1,0 +1,8 @@
+node_modules/
+*.vsix
+*.tgz
+.test-output/
+# Built on demand by `elio --setup-shortcut` (npm run launcher:build); an unsigned binary does not belong in the repository.
+desktop/Elio.exe
+*.log
+Thumbs.db
