@@ -48,6 +48,7 @@
     "fonts:bundle": "node scripts/bundle-fonts.cjs",
     "prepack": "node scripts/bundle-fonts.cjs",
     "package": "npm pack",
+    "package:portable": "node scripts/build-portable.cjs",
     "shortcut": "node scripts/install-shortcut.cjs",
     "icons:generate": "node scripts/generate-icon.cjs",
     "test:projects": "node test/desktop-projects.cjs",

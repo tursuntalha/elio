@@ -6,3 +6,4 @@ node_modules/
 desktop/Elio.exe
 *.log
 Thumbs.db
+release/
