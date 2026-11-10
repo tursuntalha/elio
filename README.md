@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="#install"><img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%2F%2011-356887?style=flat-square"></a>
-  <a href="#install"><img alt="Node.js 22.12 or later for terminal use" src="https://img.shields.io/badge/Node.js-22.12%2B-47735F?style=flat-square"></a>
+  <a href="#install"><img alt="Node.js 22.12 or later" src="https://img.shields.io/badge/Node.js-22.12%2B-47735F?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-735A87?style=flat-square"></a>
 </p>
 
@@ -44,21 +44,7 @@
 
 ## Install
 
-Elio runs on **Windows 10 and 11**. Use it as a desktop app or inside your terminal. Both need at least one supported agent (Claude Code, Codex, or OpenCode) installed and available on your `PATH`.
-
-### Desktop app
-
-No Node.js, Git, or npm needed.
-
-1. Download `Elio-<version>-win-x64.zip` from the [latest release](https://github.com/tursuntalha/elio/releases/latest).
-2. Extract it anywhere, for example `C:\Elio`.
-3. Double-click `Elio.cmd`. To add Desktop and Start menu shortcuts, run `Create-Shortcuts.cmd` once.
-
-Windows may show a SmartScreen warning because the app is not code-signed. Choose **More info**, then **Run anyway**.
-
-### Terminal
-
-Run Elio inside your current terminal and project folder. You need **Git** and **Node.js 22.12+**.
+Elio runs on **Windows 10 and 11**. You need **Git**, **Node.js 22.12+**, and at least one supported agent (Claude Code, Codex, or OpenCode) installed and available on your `PATH`.
 
 ```powershell
 git clone https://github.com/tursuntalha/elio.git
@@ -67,11 +53,9 @@ npm ci
 npm link
 ```
 
-Then open any project folder and run `elio`. The same install also opens the desktop window with `elio --window`.
+Then open any project folder and run `elio`. To open the desktop window instead, run `elio --window`.
 
 ## Commands
-
-These commands are available after the terminal install.
 
 | Command | Opens or sets up |
 | --- | --- |
