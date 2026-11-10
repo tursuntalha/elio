@@ -8,12 +8,6 @@ scripts/*
 !scripts/windows-shortcuts.cjs
 !scripts/build-launcher.cjs
 desktop/Elio.exe
-design/
-docs/
-.github/
 .editorconfig
 .gitattributes
-CONTRIBUTING.md
-SECURITY.md
-CHANGELOG.md
-README.en.md
+assets/screenshot.png

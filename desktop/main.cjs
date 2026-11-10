@@ -51,7 +51,7 @@ app.whenReady().then(async () => {
   });
   if (process.platform === 'win32') {
     const launcher = path.join(root, 'desktop', 'Elio.exe');
-    window.setAppDetails({ appId: 'Elio.Desktop', appIconPath: path.join(root, 'assets', 'elio-mascot.ico'), appIconIndex: 0,
+    window.setAppDetails({ appId: 'Elio.Desktop', appIconPath: path.join(root, 'assets', 'app-icon.ico'), appIconIndex: 0,
       relaunchCommand: fs.existsSync(launcher) ? '"' + launcher + '"' : '"' + process.execPath + '" "' + __filename + '"',
       relaunchDisplayName: 'Elio' });
   }

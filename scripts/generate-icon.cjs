@@ -3,14 +3,15 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 if (!process.versions.electron) {
   const env = { ...process.env }; delete env.ELECTRON_RUN_AS_NODE;
-  const result = require('node:child_process').spawnSync(require('electron'), [__filename, '--force-device-scale-factor=1'], { env, windowsHide: true, stdio: 'inherit' });
+  const args = ['--disable-gpu', '--disable-gpu-compositing', '--disable-features=VizDisplayCompositor', '--force-device-scale-factor=1', path.relative(root, __filename)];
+  const result = require('node:child_process').spawnSync(require('electron'), args, { cwd: root, env, windowsHide: true, stdio: 'inherit' });
   if (result.error) throw result.error;
   process.exitCode = result.status ?? 1;
 } else {
   const { app, BrowserWindow } = require('electron');
   app.disableHardwareAcceleration();
   app.whenReady().then(async () => {
-    const window = new BrowserWindow({ width: 256, height: 256, useContentSize: true, frame: false, show: false, transparent: true, webPreferences: { sandbox: true, contextIsolation: true, nodeIntegration: false } });
+    const window = new BrowserWindow({ width: 256, height: 256, useContentSize: true, frame: false, show: false, transparent: true, webPreferences: { offscreen: true, sandbox: true, contextIsolation: true, nodeIntegration: false } });
     const svg = fs.readFileSync(path.join(root, 'assets', 'app-icon.svg'), 'utf8');
     await window.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent('<style>html,body{margin:0;background:transparent;overflow:hidden}</style>' + svg));
     const capture = await window.webContents.capturePage(); const png = capture.resize({ width: 256, height: 256 }).toPNG();

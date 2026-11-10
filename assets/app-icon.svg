@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><title>Elio</title><svg x="23" y="3" width="210" height="250" viewBox="35 24 170 202"><defs><linearGradient id="elio-obelisk-g" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#a4c4bb"/><stop offset="1" stop-color="#50685f"/></linearGradient><linearGradient id="elio-obelisk-m" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#e8f3ff"/><stop offset=".48" stop-color="#a6bcd2"/><stop offset="1" stop-color="#50685f"/></linearGradient><linearGradient id="elio-obelisk-p" x2=".7" y2="1"><stop stop-color="#50685f"/><stop offset="1" stop-color="#0a1421"/></linearGradient></defs><g class="mascot-body"><g class="mascot-leg mascot-leg-left"><path d="m92 172-5 29h25l4-28" fill="#50685f" stroke="#879c8c" stroke-width="2"/></g><g class="mascot-leg mascot-leg-right"><path d="m131 173 4 28h25l-6-29" fill="#50685f" stroke="#879c8c" stroke-width="2"/></g><path class="mascot-arms" d="m83 129-16 7-5 32 21 8m74-47 16 7 5 32-21 8" fill="url(#elio-obelisk-p)" stroke="#7c9587" stroke-width="2" stroke-linejoin="round"/><path d="m91 117 58 1 12 45-15 20H95l-16-20Z" fill="url(#elio-obelisk-g)" stroke="#809b8d" stroke-width="2" stroke-linejoin="round"/><path d="m82 153 24 6-4 22m47-58-14 26 25 14" fill="none" stroke="#425e55" stroke-width="3"/><path d="m115 137 8-6 11 8-3 18-11 8-9-12Z" fill="#addbc2" stroke="#c2ecda"/><path d="m118 141 7 6-6 5" fill="none" stroke="#4a7869" stroke-width="2" stroke-linecap="round"/><path d="m79 61 18-13 48 4 17 19-6 40-17 9-50-5-15-21Z" fill="url(#elio-obelisk-g)" stroke="#8daa99" stroke-width="2" stroke-linejoin="round"/><path d="m79 61 30 7 36-16m-36 16-4 20-31 6m31-6 35 7 16 16" fill="none" stroke="#547367" stroke-width="2"/><g class="mascot-eyes"><path d="M90 85h16m28 0h14" stroke="#c4f1d3" stroke-width="5" stroke-linecap="round"/></g><path d="M115 102h13" stroke="#456557" stroke-width="2.5" stroke-linecap="round"/><path d="M144 57q-4-23 16-26 8 20-16 26Z" fill="#b7d78c" stroke="#718f65"/><path d="m145 55 8-15" stroke="#8cae73" stroke-width="1.5"/><path d="m87 166-9 8m82-31 8 7" stroke="#b4c299" stroke-width="3" stroke-linecap="round"/></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <title>Elio · Obelisk</title>
+  <defs>
+    <linearGradient id="stone" x2=".75" y2="1"><stop stop-color="#a1bcb0"/><stop offset="1" stop-color="#68867a"/></linearGradient>
+    <linearGradient id="leaf" x2=".8" y2="1"><stop stop-color="#d5e9ad"/><stop offset="1" stop-color="#9db77c"/></linearGradient>
+  </defs>
+  <g transform="translate(-31 -27) scale(1.3)">
+    <g transform="translate(0 -33.92) scale(1 1.16)">
+      <path d="M42 93 90 64l67 1 47 30 9 60-37 51-76 6-51-27-17-47Z" fill="url(#stone)" stroke="#b7cdc1" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M42 93 90 64l67 1 47 30-78 17Z" fill="#b4c9bd"/>
+      <path d="m204 95 9 60-37 51-18-38 2-41Z" fill="#577268"/>
+      <path d="m32 138 17 47 51 27 76-6-18-38-49-8-38 3Z" fill="#789287"/>
+      <path d="m43 93 83 19-12 17 7 13m5-30 77-17m-45 73 17 36" fill="none" stroke="#516d62" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="#e3ffea"><rect x="60" y="128" width="40" height="15" rx="7.5"/><rect x="134" y="128" width="40" height="15" rx="7.5"/></g>
+      <path d="M108 171h27" stroke="#425c51" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <path d="M155 60c-1-17 14-34 40-36 1 17-15 33-40 36Z" fill="url(#leaf)" stroke="#536b48" stroke-width="4"/>
+    <path d="m156 60 21-20" stroke="#789960" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

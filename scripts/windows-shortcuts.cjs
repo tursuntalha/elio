@@ -6,7 +6,7 @@ app.whenReady().then(() => {
   const root = path.resolve(__dirname, '..');
   const target = path.join(root, 'desktop', 'Elio.exe');
   if (!fs.existsSync(target)) throw new Error('Elio başlatıcısı bulunamadı.');
-  const details = { target, args: '', cwd: root, icon: path.join(root, 'assets', 'elio-mascot.ico'), iconIndex: 0, appUserModelId: 'Elio.Desktop', description: 'Elio - Projeler' };
+  const details = { target, args: '', cwd: root, icon: path.join(root, 'assets', 'app-icon.ico'), iconIndex: 0, appUserModelId: 'Elio.Desktop', description: 'Elio - Projeler' };
   const equal = (a, b) => path.resolve(a || '.').toLowerCase() === path.resolve(b).toLowerCase();
   function owned(previous) {
     return equal(previous.cwd, root) && (equal(previous.target, target) || (equal(previous.target, require('electron').app.getPath('exe')) && previous.args.includes(path.join(root, 'desktop', 'main.cjs'))));

@@ -8,8 +8,8 @@
     "file": "elio-logo.svg"
   },
   "icon": {
-    "source": "wordmark",
-    "text": "Elio",
+    "source": "mascot-head",
+    "mascotId": "M39",
     "file": "app-icon.svg"
   },
   "mascot": {
