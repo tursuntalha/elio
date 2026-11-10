@@ -49,7 +49,7 @@ test('default agent: F2 opens it directly, D sets and clears it on the focused c
 });
 
 test('default agent is remembered between runs and failing to save is reported, not fatal', () => {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-default-ui-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-default-ui-'));
   const store = createLaunchPreferences(directory);
   const first = setup({ launchPreferences: store });
   try { first.ui.action('default:opencode'); assert.equal(first.ui.defaultAgent, 'opencode'); } finally { first.ui.dispose(); }

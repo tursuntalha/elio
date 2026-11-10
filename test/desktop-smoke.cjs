@@ -38,7 +38,7 @@ async function main() {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     assert.equal(await page.locator('.mascot-walker').evaluate(element => getComputedStyle(element).animationName), 'none');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.evaluate(() => { window.__events = []; window.agentTerminal.onMessage(message => window.__events.push(message)); });
+    await page.evaluate(() => { window.__events = []; window.elio.onMessage(message => window.__events.push(message)); });
     const A = { background: '#182128', foreground: '#ddf0e2', font: 'consolas', fontSize: 16 };
     const B = { background: '#302033', foreground: '#f3d5f2', font: 'courier', fontSize: 20 };
     const C = { background: '#142d24', foreground: '#d6edff', font: 'jetbrains', fontSize: 18 };

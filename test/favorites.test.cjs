@@ -7,7 +7,7 @@ const { createFavorites } = require('../src/favorites.cjs');
 const { createPreferences } = require('../desktop/preferences.cjs');
 const { TerminalUI } = require('../src/terminal-ui.cjs');
 const { createController } = require('../src/controller.cjs');
-const temporary = () => fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-favorites-'));
+const temporary = () => fs.mkdtempSync(path.join(os.tmpdir(), 'elio-favorites-'));
 
 test('favorites persist ready and custom pairs, normalize duplicates and read changes from another instance', () => {
   const directory = temporary(), store = createFavorites(directory);

@@ -755,7 +755,7 @@ async function runTerminalUI(cwd) {
     const finish = error => { if (stopped) return; cleanup(); if (error) reject(error); else resolve(); };
     const decoder = new InputDecoder(event => { try { ui.input(event); } catch (error) { finish(error); } });
     try {
-      const motion = (process.env.ELIO_REDUCED_MOTION || process.env.AGENT_TERMINAL_REDUCED_MOTION) !== '1';
+      const motion = process.env.ELIO_REDUCED_MOTION !== '1';
       ui = new TerminalUI({ cwd, preferences, favorites, launchPreferences, motion, cols: output.columns || 80, rows: output.rows || 24, invalidate: schedule, onExit: () => finish() });
       input.setRawMode(true); input.setEncoding('utf8'); input.resume(); output.write(ENTER);
       input.on('data', data); input.on('end', signal); input.on('error', crash); output.on('resize', resize); output.on('error', crash);

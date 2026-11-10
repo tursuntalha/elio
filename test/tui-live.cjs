@@ -9,7 +9,7 @@ const { colorGrid, nearestColor, COLUMNS } = require('../src/color-grid.cjs');
 
 async function main() {
   const root = path.resolve(__dirname, '..'), output = path.join(root, '.test-output');
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-test-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-test-'));
   const workspace = path.join(directory, 'masaüstü proje'); fs.mkdirSync(workspace);
   const fixture = path.join(directory, 'fixture.cjs');
   fs.writeFileSync(fixture, `

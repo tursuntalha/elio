@@ -11,7 +11,7 @@ function publicAuthor(value) {
 }
 
 async function download(url, json = false) {
-  const response = await fetch(url, { headers: { 'User-Agent': 'agent-terminal-palette-importer' }, signal: AbortSignal.timeout(30000) });
+  const response = await fetch(url, { headers: { 'User-Agent': 'elio-palette-importer' }, signal: AbortSignal.timeout(30000) });
   if (!response.ok) throw new Error(`Download failed: ${response.status} ${url}`);
   return json ? response.json() : response.text();
 }

@@ -6,7 +6,7 @@ const { _electron: electron } = require('playwright-core');
 
 async function main() {
   const root = path.join(__dirname, '..'), output = path.join(root, '.test-output');
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-project-ui-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-project-ui-'));
   const profile = path.join(directory, 'profile'), existing = path.join(directory, 'Ödeme projesi');
   fs.mkdirSync(existing); fs.mkdirSync(output, { recursive: true });
   const fixture = path.join(directory, 'agent.cjs');
@@ -23,7 +23,7 @@ if(process.argv.includes('app-server')) {
   try {
     let page = await app.firstWindow(); const errors = []; page.on('pageerror', error => errors.push(error.message));
     const picker = async folder => app.evaluate(({ dialog }, value) => { dialog.showOpenDialog = async () => value; }, folder ? { canceled: false, filePaths: [folder] } : { canceled: true, filePaths: [] });
-    const observe = () => page.evaluate(() => { window.__events = []; window.agentTerminal.onMessage(value => window.__events.push(value)); });
+    const observe = () => page.evaluate(() => { window.__events = []; window.elio.onMessage(value => window.__events.push(value)); });
     async function start(agent, cwd) {
       await page.click(`[data-agent="${agent}"]`);
       const id = await page.locator('.session-tab.active').getAttribute('data-session-id');

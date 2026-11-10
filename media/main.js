@@ -1,6 +1,6 @@
 /* global Terminal, FitAddon, PaletteCatalog */
 (() => {
-  const host = window.agentTerminal;
+  const host = window.elio;
   const byId = id => document.getElementById(id);
   const names = { claude: 'Claude Code', codex: 'Codex', opencode: 'OpenCode' };
   const tabLetters = { claude: 'C', codex: 'X', opencode: 'O' };

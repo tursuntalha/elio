@@ -12,7 +12,7 @@ async function main() {
   if (process.platform !== 'win32') throw new Error('This integration check targets the Windows VS Code installation.');
   const root = path.resolve(__dirname, '..');
   const code = path.join(process.env.LOCALAPPDATA, 'Programs', 'Microsoft VS Code', 'Code.exe');
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-vscode-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-vscode-'));
   const profile = path.join(directory, 'profile'), extension = path.join(directory, 'extension');
   const workspace = path.join(directory, 'workspace'), log = path.join(directory, 'events.jsonl');
   for (const folder of [path.join(profile, 'User'), extension, workspace]) fs.mkdirSync(folder, { recursive: true });
@@ -28,7 +28,7 @@ async function main() {
 if(process.argv.includes('status')||process.argv.includes('list')){log({type:'status-started'});console.log('{"loggedIn": true}');}
 else{process.stdin.setRawMode(true);process.stdin.setEncoding('utf8');console.log('READY '+agent);log({type:'ready',agent});let text='';process.stdin.on('data',data=>{for(const char of data){if(char==='\\r'){log({type:'input',agent,text});text='';}else text+=char;}});}`);
   for (const agent of ['claude', 'codex']) fs.writeFileSync(path.join(directory, agent + '.cmd'), `@"${process.execPath}" "${fixture}" ${agent} %*\r\n`);
-  fs.writeFileSync(path.join(extension, 'package.json'), JSON.stringify({ name: 'agent-terminal-key-test', publisher: 'local', version: '0.0.1', engines: { vscode: '^1.90.0' }, activationEvents: ['onStartupFinished'], main: './extension.cjs' }));
+  fs.writeFileSync(path.join(extension, 'package.json'), JSON.stringify({ name: 'elio-key-test', publisher: 'local', version: '0.0.1', engines: { vscode: '^1.90.0' }, activationEvents: ['onStartupFinished'], main: './extension.cjs' }));
   const pathKey = Object.keys(process.env).find(key => key.toLowerCase() === 'path');
   const terminalEnv = { [pathKey]: directory + path.delimiter + process.env[pathKey], ELIO_DATA_DIR: path.join(directory, 'appearance') };
   fs.writeFileSync(path.join(extension, 'extension.cjs'), `const vscode=require('vscode'),fs=require('node:fs');exports.activate=()=>{const terminal=vscode.window.createTerminal({name:'Elio F-key check',shellPath:${JSON.stringify(process.execPath)},shellArgs:[${JSON.stringify(path.join(root, 'bin/elio.cjs'))}],cwd:${JSON.stringify(workspace)},env:${JSON.stringify(terminalEnv)}});vscode.window.onDidCloseTerminal(value=>{if(value===terminal)fs.appendFileSync(${JSON.stringify(log)},JSON.stringify({type:'closed'})+'\\n');});terminal.show();};`);

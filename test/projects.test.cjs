@@ -7,7 +7,7 @@ const { createProjects } = require('../src/projects.cjs');
 const { createController } = require('../src/controller.cjs');
 
 function fixture() {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-projects-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-projects-'));
   const a = path.join(root, 'Türkçe proje'), b = path.join(root, 'ikinci proje');
   fs.mkdirSync(a); fs.mkdirSync(b);
   return { root, a: fs.realpathSync.native(a), b: fs.realpathSync.native(b), store: createProjects(path.join(root, 'profile')) };

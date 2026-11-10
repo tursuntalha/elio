@@ -10,7 +10,7 @@ const { TerminalUI } = require('../src/terminal-ui.cjs');
 const bindings = require('../data/vscode-keybindings.json');
 
 test('VS Code mappings preserve JSONC, existing shortcuts, backup and repeated setup', () => {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-keys-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-keys-'));
   const filename = path.join(directory, 'keybindings.json');
   const original = '[\r\n // Keep my shortcut\r\n {"key":"shift+enter","command":"workbench.action.terminal.sendSequence","args":{"text":"\\u001b\\r"},"when":"terminalFocus"},\r\n]\r\n';
   fs.writeFileSync(filename, original);

@@ -10,11 +10,11 @@ const { createProjects } = require('../src/projects.cjs');
 const { dataDirectory } = require('../src/data-directory.cjs');
 
 const root = path.join(__dirname, '..');
-const origin = 'agent-terminal://app';
+const origin = 'elio://app';
 app.setName('Elio');
 if (process.platform === 'win32') app.setAppUserModelId('Elio.Desktop');
 app.setPath('userData', dataDirectory(app.getPath('appData')));
-protocol.registerSchemesAsPrivileged([{ scheme: 'agent-terminal', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
+protocol.registerSchemesAsPrivileged([{ scheme: 'elio', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 let controller;
 
 app.whenReady().then(async () => {
@@ -33,11 +33,11 @@ app.whenReady().then(async () => {
     if (!/^[a-z0-9-]+\/[a-z0-9-]+\.woff2$/.test(file.path)) throw new Error('Invalid font file.');
     assets.set('/assets/fonts/' + file.path, 'font/woff2');
   }
-  protocol.handle('agent-terminal', request => {
+  protocol.handle('elio', request => {
     const url = new URL(request.url);
     if (url.hostname !== 'app' || request.method !== 'GET') return new Response('', { status: 404 });
     if (url.pathname === '/') {
-      const html = renderView((...parts) => `${origin}/${parts.join('/')}`, 'agent-terminal:');
+      const html = renderView((...parts) => `${origin}/${parts.join('/')}`, 'elio:');
       return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
     }
     const mime = assets.get(url.pathname);
@@ -72,16 +72,16 @@ app.whenReady().then(async () => {
       const result = await dialog.showOpenDialog(window, { title: 'Choose a location for the new project', defaultPath: app.getPath('documents'), properties: ['openDirectory', 'createDirectory'] });
       return result.canceled ? null : result.filePaths[0];
     },
-    post: message => { if (!window.isDestroyed()) window.webContents.send('agent-terminal:event', message); },
+    post: message => { if (!window.isDestroyed()) window.webContents.send('elio:event', message); },
     getAppearance: () => preferences.read(), saveAppearance: value => preferences.write(value), clipboard,
     getFavorites: () => favorites.read(), toggleFavorite: (value, name) => favorites.toggle(value, name),
     getLaunchModes: () => launchPreferences.read(), saveLaunchMode: (agent, mode) => launchPreferences.set(agent, mode),
     getDefaultAgent: () => launchPreferences.readDefault(), saveDefaultAgent: agent => launchPreferences.setDefault(agent)
   });
-  ipcMain.on('agent-terminal:message', (event, message) => {
+  ipcMain.on('elio:message', (event, message) => {
     if (event.sender === window.webContents && event.senderFrame === window.webContents.mainFrame) void controller.receive(message);
   });
-  window.on('closed', () => { controller.dispose(); ipcMain.removeAllListeners('agent-terminal:message'); });
+  window.on('closed', () => { controller.dispose(); ipcMain.removeAllListeners('elio:message'); });
   window.once('ready-to-show', () => window.show());
   await window.loadURL(origin + '/');
 }).catch(error => { console.error(error); app.exit(1); });

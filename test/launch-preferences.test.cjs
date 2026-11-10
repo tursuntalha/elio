@@ -8,7 +8,7 @@ const { createController } = require('../src/controller.cjs');
 const { TerminalUI } = require('../src/terminal-ui.cjs');
 
 test('saved launch modes persist independently and reach later terminal instances', () => {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-launch-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-launch-'));
   const store = createLaunchPreferences(directory);
   assert.deepEqual(store.read(), { claude: 'normal', codex: 'normal', opencode: 'normal' });
   store.set('codex', 'full');
@@ -56,7 +56,7 @@ test('desktop acknowledges persisted modes without starting a process and reject
 });
 
 test('default agent persists next to the launch modes, survives mode changes and can be cleared', () => {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agent-terminal-default-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'elio-default-'));
   const store = createLaunchPreferences(directory);
   assert.equal(store.readDefault(), null);
   assert.equal(store.setDefault('opencode'), 'opencode');

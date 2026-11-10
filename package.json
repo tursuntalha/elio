@@ -33,8 +33,7 @@
   },
   "main": "./desktop/main.cjs",
   "bin": {
-    "elio": "./bin/elio.cjs",
-    "agent-terminal": "./bin/agent-terminal.cjs"
+    "elio": "./bin/elio.cjs"
   },
   "scripts": {
     "check": "node scripts/check.cjs",

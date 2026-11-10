@@ -24,7 +24,7 @@ function installVSCodeKeys(filename = vscodeKeybindingsFile()) {
   }
   if (!added) return { filename, added: 0, backup: null };
   fs.mkdirSync(path.dirname(filename), { recursive: true });
-  const backup = exists ? filename + '.agent-terminal-' + new Date().toISOString().replace(/[:.]/g, '-') + '-' + process.pid + '.bak' : null;
+  const backup = exists ? filename + '.elio-' + new Date().toISOString().replace(/[:.]/g, '-') + '-' + process.pid + '.bak' : null;
   if (backup) fs.copyFileSync(filename, backup, fs.constants.COPYFILE_EXCL);
   const temporary = filename + '.' + process.pid + '.tmp';
   try { fs.writeFileSync(temporary, text); fs.renameSync(temporary, filename); }

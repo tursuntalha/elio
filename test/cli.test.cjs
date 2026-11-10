@@ -23,8 +23,6 @@ test('help and version do not start the desktop application', () => {
   const result = spawnSync(process.execPath, [bin, '--version'], { encoding: 'utf8' });
   assert.equal(result.status, 0);
   assert.equal(result.stdout.trim(), require('../package.json').version);
-  const compatibility = spawnSync(process.execPath, [path.join(__dirname, '..', 'bin', 'agent-terminal.cjs'), '--version'], { encoding: 'utf8' });
-  assert.equal(compatibility.status, 0); assert.equal(compatibility.stdout.trim(), result.stdout.trim());
   const help = spawnSync(process.execPath, [bin, '--help'], { encoding: 'utf8' });
   assert.equal(help.status, 0);
   assert.match(help.stdout, /elio \[folder\]/);
