@@ -1,0 +1,90 @@
+# Builds the portable Windows package and publishes it as a GitHub Release.
+#
+# Release a new version:
+#   1. Update "version" in package.json and commit it.
+#   2. git tag v<version>   (for example: git tag v0.21.0)
+#   3. git push origin v<version>
+#
+# Run it manually from the Actions tab to build the package without publishing.
+# The zip is then available as a workflow artifact.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows-package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Check that the tag matches package.json
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run check
+      - run: npm run package:portable
+
+      - name: Verify the package contents
+        shell: pwsh
+        run: |
+          $zip = (Get-ChildItem release -Filter *.zip | Select-Object -First 1).FullName
+          $entries = & "$env:SystemRoot\System32\tar.exe" -tf $zip
+          if ($LASTEXITCODE -ne 0) { throw 'The archive could not be read.' }
+          foreach ($needle in @('Elio.cmd', 'Create-Shortcuts.cmd', 'desktop/Elio.exe', 'desktop/main.cjs', 'node_modules/electron/dist/electron.exe', 'node_modules/node-pty/prebuilds/win32-x64/pty.node', 'THIRD_PARTY_NOTICES.md')) {
+            if (-not ($entries | Where-Object { $_ -like "*/$needle" })) { throw "Missing from the package: $needle" }
+          }
+          Write-Host "Package verified: $($entries.Count) entries"
+
+      - name: Write the checksum
+        shell: pwsh
+        run: |
+          Get-ChildItem release -Filter *.zip | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+            "$hash  $($_.Name)" | Out-File -Encoding ascii "$($_.FullName).sha256"
+          }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: elio-windows
+          path: |
+            release/*.zip
+            release/*.sha256
+          if-no-files-found: error
+
+      - name: Publish the release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous="$(git describe --tags --abbrev=0 "$GITHUB_REF_NAME^" 2>/dev/null || true)"
+          {
+            cat .github/release-notes.md
+            if [ -n "$previous" ]; then
+              echo
+              echo "## What's changed"
+              git log --no-merges --pretty='- %s' "$previous..$GITHUB_REF_NAME"
+            fi
+          } > release-notes.md
+          gh release create "$GITHUB_REF_NAME" release/*.zip release/*.sha256 \
+            --title "Elio ${GITHUB_REF_NAME#v}" --notes-file release-notes.md

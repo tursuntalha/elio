@@ -82,7 +82,7 @@ fs.writeFileSync(path.join(stage, 'README.txt'), crlf([
 ].join('\n')));
 
 const zip = process.platform === 'win32'
-  ? spawnSync('tar', ['-a', '-c', '-f', archive, '-C', out, name], { stdio: 'inherit' })
+  ? spawnSync(path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'tar.exe'), ['-a', '-c', '-f', archive, '-C', out, name], { stdio: 'inherit' })
   : spawnSync('zip', ['-qr', archive, name], { cwd: out, stdio: 'inherit' });
 if (zip.status !== 0) fail('Could not create the archive.');
 console.log(`${path.relative(root, archive)}  ${(fs.statSync(archive).size / 1048576).toFixed(1)} MB`);
