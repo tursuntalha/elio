@@ -71,4 +71,17 @@ These commands are available after the terminal install.
 | `elio --setup-shortcut` | Desktop and Start menu shortcuts |
 | `elio --setup-vscode` | Function-key shortcuts for the VS Code terminal |
 
-[MIT License](LICENSE) · [Palette credits](data/Gogh-LICENSE-MIT.txt) · [Font licenses](assets/fonts) · [Agent icon credits](assets/brands/LICENSE.txt)
+## Credits
+
+Elio stands on other people's work:
+
+- **Color palettes:** most of the 1,100+ pairs come from [Gogh](https://github.com/Gogh-Co/Gogh). The featured pairs follow [Dracula](https://draculatheme.com/spec), [Nord](https://www.nordtheme.com/docs/colors-and-palettes/), [Gruvbox](https://github.com/morhetz/gruvbox), [Tokyo Night](https://github.com/folke/tokyonight.nvim), [Catppuccin](https://catppuccin.com/palette/), and [Solarized](https://ethanschoonover.com/solarized/).
+- **Fonts:** 24 monospace fonts through [Fontsource](https://fontsource.org), each under its own license.
+- **Agent icons:** [Lobe Icons](https://github.com/lobehub/lobe-icons) by LobeHub.
+- **Built with:** [Electron](https://github.com/electron/electron), [xterm.js](https://github.com/xtermjs/xterm.js), and [node-pty](https://github.com/microsoft/node-pty).
+
+Full list and licenses: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Elio is an independent project. It is not affiliated with or endorsed by Anthropic, OpenAI, or the OpenCode project. Their names and logos belong to their owners.
+
+[MIT License](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Palette license](data/Gogh-LICENSE-MIT.txt) · [Font licenses](assets/fonts) · [Icon license](assets/brands/LICENSE.txt)

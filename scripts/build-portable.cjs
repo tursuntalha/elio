@@ -46,6 +46,7 @@ copy('desktop', 'desktop', source => !source.endsWith('launcher.cs'));
 for (const folder of ['src', 'media', 'data']) copy(folder);
 copy('assets', 'assets', source => !/assets[\\/]screenshot[^\\/]*\.png$/.test(source));
 copy('LICENSE');
+copy('THIRD_PARTY_NOTICES.md');
 fs.writeFileSync(path.join(stage, 'package.json'), JSON.stringify({
   name: pkg.name, productName: pkg.productName, version: pkg.version, description: pkg.description,
   license: pkg.license, author: pkg.author, homepage: pkg.homepage, main: pkg.main
@@ -76,6 +77,7 @@ fs.writeFileSync(path.join(stage, 'README.txt'), crlf([
   '2. Double-click Elio.cmd to start Elio.',
   '3. Optional: double-click Create-Shortcuts.cmd to add Desktop and Start menu shortcuts.', '',
   'Claude Code, Codex or OpenCode must be installed separately and available on your PATH.',
+  'Credits and third-party licenses: THIRD_PARTY_NOTICES.md',
   'Project page: ' + pkg.homepage.replace(/#.*$/, ''), ''
 ].join('\n')));
 
