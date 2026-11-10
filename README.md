@@ -55,6 +55,8 @@ npm link
 
 Then open any project folder and run `elio`. To open the desktop window instead, run `elio --window`.
 
+Want it like a normal app? Run `elio --setup-shortcut` once to add Desktop and Start menu shortcuts.
+
 ## Commands
 
 | Command | Opens or sets up |
