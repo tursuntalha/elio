@@ -44,7 +44,7 @@ fs.mkdirSync(stage, { recursive: true });
 
 copy('desktop', 'desktop', source => !source.endsWith('launcher.cs'));
 for (const folder of ['src', 'media', 'data']) copy(folder);
-copy('assets', 'assets', source => !/assets[\\/]screenshot[^\\/]*\.png$/.test(source));
+copy('assets', 'assets', source => !/assets[\\/](screenshot[^\\/]*\.png|demo\.gif)$/.test(source));
 copy('LICENSE');
 copy('THIRD_PARTY_NOTICES.md');
 fs.writeFileSync(path.join(stage, 'package.json'), JSON.stringify({

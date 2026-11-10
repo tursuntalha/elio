@@ -14,7 +14,9 @@
   <a href="#what-you-can-do">Features</a> · <a href="#install">Install</a> · <a href="#commands">Commands</a>
 </p>
 
-![Elio desktop workspace showing Claude Code, Codex, and OpenCode](assets/screenshot.png)
+<p align="center">
+  <img src="assets/demo.gif" width="880" alt="Elio's home screen, then live theme editing: preset palettes, search, random picks, and font changes">
+</p>
 
 ## What you can do
 
@@ -25,6 +27,13 @@
 | **Jump between projects** | Start in your current folder or use the desktop picker to reopen recent projects, open a folder, or create one. |
 | **Find your colors** | Browse 1,100+ color pairs, try a random palette, or pick your own colors. Preview changes live and save your favorites. |
 | **Style each session** | Style a single session or set a theme for future sessions. The desktop window includes 24 fonts and adjustable text size. |
+
+<details>
+<summary>See Claude Code, Codex, and OpenCode in Elio</summary>
+
+![Elio desktop workspace showing Claude Code, Codex, and OpenCode](assets/screenshot.png)
+
+</details>
 
 <details>
 <summary>See the theme editor</summary>
