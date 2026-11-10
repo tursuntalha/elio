@@ -6,7 +6,7 @@ const { createHash } = require('node:crypto');
 const { FONT_OPTIONS, FONTS } = require('../src/fonts.cjs');
 const { appearance } = require('../src/terminal.cjs');
 
-test('at least twenty real font families are bundled with Turkish subsets and original licenses', () => {
+test('at least twenty real font families are bundled with Latin Extended subsets and original licenses', () => {
   const root = path.resolve(__dirname, '..', 'assets', 'fonts');
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json')));
   assert.ok(manifest.length >= 20);

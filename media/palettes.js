@@ -4,16 +4,16 @@
   else root.PaletteCatalog = factory();
 })(globalThis, function () {
   function validateCatalog(value) {
-    if (value?.schemaVersion !== 1 || !Array.isArray(value.palettes) || !Array.isArray(value.featured)) throw new Error('Geçersiz palet kataloğu.');
+    if (value?.schemaVersion !== 1 || !Array.isArray(value.palettes) || !Array.isArray(value.featured)) throw new Error('Invalid palette catalog.');
     const ids = new Set();
     const palettes = value.palettes.map(item => {
       if (!item || typeof item.id !== 'string' || !/^[a-z0-9-]+$/.test(item.id) || ids.has(item.id)
         || typeof item.name !== 'string' || !item.name.trim() || item.name.length > 80
-        || !/^#[0-9a-f]{6}$/i.test(item.background) || !/^#[0-9a-f]{6}$/i.test(item.foreground)) throw new Error('Geçersiz veya yinelenen palet.');
+        || !/^#[0-9a-f]{6}$/i.test(item.background) || !/^#[0-9a-f]{6}$/i.test(item.foreground)) throw new Error('Invalid or duplicate palette.');
       ids.add(item.id);
       return { id: item.id, name: item.name, background: item.background.toLowerCase(), foreground: item.foreground.toLowerCase(), source: typeof item.source === 'string' ? item.source : '', collection: typeof item.collection === 'string' ? item.collection : '', author: typeof item.author === 'string' ? item.author : '' };
     });
-    if (value.featured.some(id => !ids.has(id)) || new Set(value.featured).size !== value.featured.length) throw new Error('Geçersiz hazır palet listesi.');
+    if (value.featured.some(id => !ids.has(id)) || new Set(value.featured).size !== value.featured.length) throw new Error('Invalid preset palette list.');
     return { schemaVersion: 1, palettes, featured: [...value.featured] };
   }
   function matching(catalog, value) {

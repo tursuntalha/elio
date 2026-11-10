@@ -30,7 +30,7 @@ app.whenReady().then(async () => {
   ]);
   const bundledFonts = JSON.parse(fs.readFileSync(path.join(root, 'assets', 'fonts', 'manifest.json'), 'utf8'));
   for (const font of bundledFonts) for (const file of font.files) {
-    if (!/^[a-z0-9-]+\/[a-z0-9-]+\.woff2$/.test(file.path)) throw new Error('Geçersiz yazı tipi dosyası.');
+    if (!/^[a-z0-9-]+\/[a-z0-9-]+\.woff2$/.test(file.path)) throw new Error('Invalid font file.');
     assets.set('/assets/fonts/' + file.path, 'font/woff2');
   }
   protocol.handle('agent-terminal', request => {
@@ -65,11 +65,11 @@ app.whenReady().then(async () => {
   controller = createController({
     cwd, projects, projectParent: app.getPath('documents'),
     pickProject: async current => {
-      const result = await dialog.showOpenDialog(window, { title: 'Proje klasörünü aç', defaultPath: current || app.getPath('documents'), properties: ['openDirectory'] });
+      const result = await dialog.showOpenDialog(window, { title: 'Open project folder', defaultPath: current || app.getPath('documents'), properties: ['openDirectory'] });
       return result.canceled ? null : result.filePaths[0];
     },
     pickProjectParent: async () => {
-      const result = await dialog.showOpenDialog(window, { title: 'Yeni projenin oluşturulacağı konum', defaultPath: app.getPath('documents'), properties: ['openDirectory', 'createDirectory'] });
+      const result = await dialog.showOpenDialog(window, { title: 'Choose a location for the new project', defaultPath: app.getPath('documents'), properties: ['openDirectory', 'createDirectory'] });
       return result.canceled ? null : result.filePaths[0];
     },
     post: message => { if (!window.isDestroyed()) window.webContents.send('agent-terminal:event', message); },

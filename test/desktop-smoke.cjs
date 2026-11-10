@@ -28,7 +28,7 @@ async function main() {
     assert.equal(main.y, 0);
     assert.ok(await page.locator('[data-settings="session"]').isDisabled());
     const homeText = await page.locator('#home').innerText();
-    assert.ok(!/Fikirden koda|Koduna odaklan|Bildiğin terminal|Aracını seç|Çalışmaya başla/.test(homeText));
+    assert.ok(!/From idea to code|Focus on your code|The terminal you know|Choose your agent|Start working/.test(homeText));
     const firstMascot = await page.locator('.mascot-walker').boundingBox();
     await page.waitForTimeout(300); const nextMascot = await page.locator('.mascot-walker').boundingBox();
     assert.ok(Math.abs(firstMascot.x - nextMascot.x) > 1);
@@ -44,7 +44,7 @@ async function main() {
     const C = { background: '#142d24', foreground: '#d6edff', font: 'jetbrains', fontSize: 18 };
     async function editTheme(scope, theme) {
       await page.click(`[data-settings="${scope}"]`);
-      assert.equal(await page.locator('#appearance-title').textContent(), scope === 'global' ? 'Genel görünüm' : 'Oturum görünümü');
+      assert.equal(await page.locator('#appearance-title').textContent(), scope === 'global' ? 'Global appearance' : 'Session appearance');
       await page.locator('#background').fill(theme.background); await page.locator('#foreground').fill(theme.foreground);
       await page.selectOption('#font', theme.font); await page.locator('#font-size').fill(String(theme.fontSize)); await page.click('#close-appearance');
       await page.waitForTimeout(200);
@@ -108,7 +108,7 @@ async function main() {
     assert.equal(loadedFonts.length, 24); assert.ok(loadedFonts.every(font => font.loaded && font.faces >= 2 && font.mono), JSON.stringify(loadedFonts));
     assert.ok(new Set(loadedFonts.map(font => font.hash)).size >= 20, 'Fonts must render different glyphs, not just different option names');
     assert.deepEqual(remoteFontRequests, []);
-    assert.equal(await page.locator('#palette-total').textContent(), require('../data/palettes.json').palettes.length.toLocaleString('tr-TR') + ' renk çifti');
+    assert.equal(await page.locator('#palette-total').textContent(), require('../data/palettes.json').palettes.length.toLocaleString('en-US') + ' color pairs');
     const firstPage = await page.locator('[data-library-palette]').first().getAttribute('data-library-palette');
     await page.click('#palette-next');
     assert.notEqual(await page.locator('[data-library-palette]').first().getAttribute('data-library-palette'), firstPage);
@@ -240,15 +240,15 @@ async function main() {
     await page.waitForSelector('#opencode-providers .provider-chip, #opencode-providers .account-note:not(:has-text("okunuyor"))', { timeout: 20000 });
     await page.click('[data-login="opencode"]');
     await page.waitForFunction(count => document.querySelectorAll('[role=tab]').length === count + 1, tabsAfterClear);
-    assert.equal(await page.locator('.session-tab.active .tab-label').textContent(), 'OpenCode · giriş');
-    assert.equal(await page.locator('.session-tab.active .tab-short').textContent(), 'OG');
-    assert.equal(await page.locator('#session-mode').textContent(), 'Giriş');
+    assert.equal(await page.locator('.session-tab.active .tab-label').textContent(), 'OpenCode · sign-in');
+    assert.equal(await page.locator('.session-tab.active .tab-short').textContent(), 'OL');
+    assert.equal(await page.locator('#session-mode').textContent(), 'Sign-in');
     assert.deepEqual(errors, []);
     await application.close(); application = await launch(); page = await application.firstWindow();
     await page.waitForFunction(() => document.getElementById('cwd')?.textContent.length > 0);
     assert.equal(await page.getByRole('tab').count(), 0);
     assert.equal(await page.locator('[data-launch-label="claude"]').textContent(), 'Normal');
-    assert.equal(await page.locator('[data-launch-label="codex"]').textContent(), 'Tüm izinler açık');
+    assert.equal(await page.locator('[data-launch-label="codex"]').textContent(), 'Full access');
     await page.click('[data-settings="global"]');
     assert.equal(await page.locator('#background').inputValue(), C.background);
     assert.equal(await page.locator('#foreground').inputValue(), C.foreground);

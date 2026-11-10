@@ -5,8 +5,8 @@ app.setName('Elio');
 app.whenReady().then(() => {
   const root = path.resolve(__dirname, '..');
   const target = path.join(root, 'desktop', 'Elio.exe');
-  if (!fs.existsSync(target)) throw new Error('Elio başlatıcısı bulunamadı.');
-  const details = { target, args: '', cwd: root, icon: path.join(root, 'assets', 'app-icon.ico'), iconIndex: 0, appUserModelId: 'Elio.Desktop', description: 'Elio - Projeler' };
+  if (!fs.existsSync(target)) throw new Error('Elio launcher not found.');
+  const details = { target, args: '', cwd: root, icon: path.join(root, 'assets', 'app-icon.ico'), iconIndex: 0, appUserModelId: 'Elio.Desktop', description: 'Elio - Projects' };
   const equal = (a, b) => path.resolve(a || '.').toLowerCase() === path.resolve(b).toLowerCase();
   function owned(previous) {
     return equal(previous.cwd, root) && (equal(previous.target, target) || (equal(previous.target, require('electron').app.getPath('exe')) && previous.args.includes(path.join(root, 'desktop', 'main.cjs'))));
@@ -14,10 +14,10 @@ app.whenReady().then(() => {
   function install(filename, updatePinned = false) {
     if (fs.existsSync(filename)) {
       const previous = shell.readShortcutLink(filename);
-      if (!owned(previous)) { if (updatePinned) return false; throw new Error('Başka bir Elio kısayolunun üzerine yazılmadı: ' + filename); }
+      if (!owned(previous)) { if (updatePinned) return false; throw new Error('An existing Elio shortcut was left unchanged: ' + filename); }
     }
     fs.mkdirSync(path.dirname(filename), { recursive: true });
-    if (!shell.writeShortcutLink(filename, fs.existsSync(filename) ? 'replace' : 'create', details)) throw new Error('Kısayol kaydedilemedi: ' + filename);
+    if (!shell.writeShortcutLink(filename, fs.existsSync(filename) ? 'replace' : 'create', details)) throw new Error('Could not save shortcut: ' + filename);
     return true;
   }
   const desktop = path.join(app.getPath('desktop'), 'Elio.lnk');

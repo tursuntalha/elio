@@ -1,6 +1,6 @@
-const HUES = ['Kırmızı', 'Turuncu', 'Sarı', 'Limon', 'Yeşil', 'Nane', 'Turkuaz', 'Mavi', 'Lacivert', 'Mor', 'Fuşya', 'Pembe'];
+const HUES = ['Red', 'Orange', 'Yellow', 'Lime', 'Green', 'Mint', 'Cyan', 'Blue', 'Indigo', 'Purple', 'Fuchsia', 'Pink'];
 const LIGHTNESS = [6, 12, 20, 28, 36, 44, 52, 60, 68, 78, 88, 96];
-const SATURATIONS = [{ name: 'Canlı', value: 95 }, { name: 'Dengeli', value: 70 }, { name: 'Pastel', value: 35 }];
+const SATURATIONS = [{ name: 'Vivid', value: 95 }, { name: 'Balanced', value: 70 }, { name: 'Pastel', value: 35 }];
 const COLUMNS = HUES.length;
 
 function hslToHex(hue, saturation, lightness) {
@@ -16,7 +16,7 @@ function colorGrid(saturation = 1) {
   const colors = [];
   for (let index = 0; index < COLUMNS; index++) {
     const channel = Math.round(index * 255 / (COLUMNS - 1)).toString(16).padStart(2, '0');
-    colors.push({ hex: '#' + channel.repeat(3), name: 'Gri', tone: Math.round(index * 100 / (COLUMNS - 1)) + '%', gray: true });
+    colors.push({ hex: '#' + channel.repeat(3), name: 'Gray', tone: Math.round(index * 100 / (COLUMNS - 1)) + '%', gray: true });
   }
   return colors.concat(LIGHTNESS.flatMap(lightness => HUES.map((name, index) => ({ hex: hslToHex(index * 30, mode.value, lightness), name, tone: lightness + '%', gray: false }))));
 }

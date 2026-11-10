@@ -31,7 +31,7 @@ test('animated home preserves card targets and the terminal copy is plain', () =
       if (tight) assert.equal(first.plain(), second.plain()); else assert.notEqual(first.plain(), second.plain());
       assert.deepEqual(second.hits.filter(hit => agents.includes(hit.action)), hits);
       assert.deepEqual(hits.map(hit => hit.action), agents); assert.ok(hits.every(hit => hit.y >= (tight ? 2 : 8)));
-      assert.ok(!/Fikirden|akış|odaklan|Renklerini seç|çalışıyoruz/.test(second.plain()));
+      assert.ok(!/From idea to code|Focus on your code|Choose your colors|Start working/.test(second.plain()));
       assert.ok(hits.every(hit => hit.x + hit.cols <= cols && hit.y + hit.rows <= rows));
       assert.ok(second.hits.some(hit => hit.action === 'global' && hit.y < rows - 1), 'footer buttons stay visible');
       assert.ok(second.plain().includes('OpenCode'));

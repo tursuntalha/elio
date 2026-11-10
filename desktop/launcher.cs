@@ -41,7 +41,7 @@ internal static class ElioLauncher {
             using (Process process = Process.Start(start)) { }
             return 0;
         } catch {
-            MessageBox.Show("Elio başlatılamadı. Uygulama dosyalarının bulunduğu klasörü kontrol edin.", "Elio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Could not start Elio. Check that the application files are in the expected folder.", "Elio", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return 1;
         }
     }

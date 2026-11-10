@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,23 +30,23 @@
   </svg>
   <main id="projects-view" class="projects-view">
     <div class="projects-shell">
-      <header class="projects-header"><div class="projects-brand"><span class="brand-logo-wrap">{{brandLogoProject}}</span><h1 class="visually-hidden">Elio</h1><span class="projects-subtitle">Projeler</span></div><span class="version">0.20</span></header>
+      <header class="projects-header"><div class="projects-brand"><span class="brand-logo-wrap">{{brandLogoProject}}</span><h1 class="visually-hidden">Elio</h1><span class="projects-subtitle">Projects</span></div><span class="version">0.20</span></header>
       <div class="project-actions">
-        <button id="project-open" class="project-action"><span class="project-action-icon"><svg><use href="#i-folder"/></svg></span><strong>Proje aç</strong><span>Mevcut bir klasörü seç</span><svg class="project-action-arrow"><use href="#i-arrow"/></svg></button>
-        <button id="project-new" class="project-action"><span class="project-action-icon"><svg><use href="#i-plus"/></svg></span><strong>Yeni proje</strong><span>Yeni bir klasör oluştur</span><svg class="project-action-arrow"><use href="#i-arrow"/></svg></button>
+        <button id="project-open" class="project-action"><span class="project-action-icon"><svg><use href="#i-folder"/></svg></span><strong>Open project</strong><span>Choose an existing folder</span><svg class="project-action-arrow"><use href="#i-arrow"/></svg></button>
+        <button id="project-new" class="project-action"><span class="project-action-icon"><svg><use href="#i-plus"/></svg></span><strong>New project</strong><span>Create a new folder</span><svg class="project-action-arrow"><use href="#i-arrow"/></svg></button>
       </div>
       <p id="project-error" class="feedback" role="alert" hidden></p>
-      <div class="recent-heading"><h2>Son projeler</h2><span id="project-count" class="count-badge">0</span></div>
-      <p id="projects-empty" class="projects-empty">Henüz açılmış bir proje yok.</p>
-      <div id="recent-projects" class="recent-projects" aria-label="Son projeler"></div>
-      <button id="project-return" class="quiet-button project-return" hidden><svg><use href="#i-back"/></svg><span>Çalışma alanına dön</span></button>
+      <div class="recent-heading"><h2>Recent projects</h2><span id="project-count" class="count-badge">0</span></div>
+      <p id="projects-empty" class="projects-empty">No recent projects.</p>
+      <div id="recent-projects" class="recent-projects" aria-label="Recent projects"></div>
+      <button id="project-return" class="quiet-button project-return" hidden><svg><use href="#i-back"/></svg><span>Back to workspace</span></button>
     </div>
   </main>
   <div id="workspace" class="workspace-layout" hidden>
   <div class="workspace-main">
   <main id="home" class="home-view" hidden>
     <div class="home-shell">
-      <h1 class="visually-hidden">Yeni oturum</h1>
+      <h1 class="visually-hidden">New session</h1>
       <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
       <div class="mascot-lane" aria-hidden="true">
         <div class="mascot-walker">
@@ -54,130 +54,130 @@
         </div>
       </div>
       <p id="default-hint" class="default-hint"></p>
-      <section class="agent-grid" aria-label="Kodlama araçları">
+      <section class="agent-grid" aria-label="Coding agents">
         <article class="agent-card claude-card">
-          <button class="default-toggle" data-default-agent="claude" aria-pressed="false" aria-label="Varsayılan araç yap" title="Varsayılan araç yap"><svg><use href="#i-star"/></svg></button>
-          <button class="agent-select" data-agent="claude" aria-label="Claude Code'u aç">
+          <button class="default-toggle" data-default-agent="claude" aria-pressed="false" aria-label="Set as default agent" title="Set as default agent"><svg><use href="#i-star"/></svg></button>
+          <button class="agent-select" data-agent="claude" aria-label="Launch Claude Code">
             <span class="card-top"><span class="agent-mark claude-mark"><svg><use href="#i-claude"/></svg></span><span class="maker">ANTHROPIC</span></span>
             <span class="agent-name">Claude Code</span>
-            <span class="card-action">Başlat <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
+            <span class="card-action">Launch <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
           </button>
-          <button class="launch-mode-button" data-launch-settings="claude" aria-haspopup="dialog" aria-label="Claude başlatma modu"><span>Başlatma modu</span><strong data-launch-label="claude">Normal</strong><span aria-hidden="true">⌄</span></button>
+          <button class="launch-mode-button" data-launch-settings="claude" aria-haspopup="dialog" aria-label="Claude launch mode"><span>Launch mode</span><strong data-launch-label="claude">Normal</strong><span aria-hidden="true">⌄</span></button>
           <div class="account-section">
-            <div class="account-heading"><span>Hesap</span><button class="icon-button refresh-button" data-refresh-auth="claude" aria-label="Claude giriş durumunu yenile" title="Durumu yenile"><svg><use href="#i-refresh"/></svg></button></div>
-            <div id="claude-account" class="account-status-box" aria-live="polite"><p class="account-note">Giriş durumu okunuyor…</p></div>
+            <div class="account-heading"><span>Account</span><button class="icon-button refresh-button" data-refresh-auth="claude" aria-label="Refresh Claude sign-in status" title="Refresh status"><svg><use href="#i-refresh"/></svg></button></div>
+            <div id="claude-account" class="account-status-box" aria-live="polite"><p class="account-note">Checking sign-in status…</p></div>
           </div>
         </article>
         <article class="agent-card codex-card">
-          <button class="default-toggle" data-default-agent="codex" aria-pressed="false" aria-label="Varsayılan araç yap" title="Varsayılan araç yap"><svg><use href="#i-star"/></svg></button>
-          <button class="agent-select" data-agent="codex" aria-label="Codex'i aç">
+          <button class="default-toggle" data-default-agent="codex" aria-pressed="false" aria-label="Set as default agent" title="Set as default agent"><svg><use href="#i-star"/></svg></button>
+          <button class="agent-select" data-agent="codex" aria-label="Launch Codex">
             <span class="card-top"><span class="agent-mark codex-mark"><svg><use href="#i-codex"/></svg></span><span class="maker">OPENAI</span></span>
             <span class="agent-name">Codex</span>
-            <span class="card-action">Başlat <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
+            <span class="card-action">Launch <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
           </button>
-          <button class="launch-mode-button" data-launch-settings="codex" aria-haspopup="dialog" aria-label="Codex başlatma modu"><span>Başlatma modu</span><strong data-launch-label="codex">Normal</strong><span aria-hidden="true">⌄</span></button>
+          <button class="launch-mode-button" data-launch-settings="codex" aria-haspopup="dialog" aria-label="Codex launch mode"><span>Launch mode</span><strong data-launch-label="codex">Normal</strong><span aria-hidden="true">⌄</span></button>
           <div class="account-section">
-            <div class="account-heading"><span>Hesap</span><button class="icon-button refresh-button" data-refresh-auth="codex" aria-label="Codex giriş durumunu yenile" title="Durumu yenile"><svg><use href="#i-refresh"/></svg></button></div>
-            <div id="codex-account" class="account-status-box" aria-live="polite"><p class="account-note">Giriş durumu okunuyor…</p></div>
+            <div class="account-heading"><span>Account</span><button class="icon-button refresh-button" data-refresh-auth="codex" aria-label="Refresh Codex sign-in status" title="Refresh status"><svg><use href="#i-refresh"/></svg></button></div>
+            <div id="codex-account" class="account-status-box" aria-live="polite"><p class="account-note">Checking sign-in status…</p></div>
           </div>
         </article>
         <article class="agent-card opencode-card">
-          <button class="default-toggle" data-default-agent="opencode" aria-pressed="false" aria-label="Varsayılan araç yap" title="Varsayılan araç yap"><svg><use href="#i-star"/></svg></button>
-          <button class="agent-select" data-agent="opencode" aria-label="OpenCode'u aç">
+          <button class="default-toggle" data-default-agent="opencode" aria-pressed="false" aria-label="Set as default agent" title="Set as default agent"><svg><use href="#i-star"/></svg></button>
+          <button class="agent-select" data-agent="opencode" aria-label="Launch OpenCode">
             <span class="card-top"><span class="agent-mark opencode-mark"><svg><use href="#i-opencode"/></svg></span><span class="maker">SST</span></span>
             <span class="agent-name">OpenCode</span>
-            <span class="card-action">Başlat <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
+            <span class="card-action">Launch <span class="arrow-circle"><svg><use href="#i-arrow"/></svg></span></span>
           </button>
-          <div class="launch-mode-button launch-mode-static" title="OpenCode'da izinleri atlayan bir başlatma bayrağı yok"><span>Başlatma modu</span><strong>Normal</strong></div>
+          <div class="launch-mode-button launch-mode-static" title="OpenCode supports normal mode only"><span>Launch mode</span><strong>Normal</strong></div>
           <div class="account-section">
-            <div class="account-heading"><span>Sağlayıcılar</span><button class="icon-button refresh-button" data-refresh-auth="opencode" aria-label="OpenCode sağlayıcılarını yenile" title="Durumu yenile"><svg><use href="#i-refresh"/></svg></button></div>
-            <div id="opencode-providers" class="provider-list" aria-live="polite"><p class="account-note">Sağlayıcılar okunuyor…</p></div>
-            <button class="auth-button" data-login="opencode" hidden>Sağlayıcı ekle</button>
+            <div class="account-heading"><span>Providers</span><button class="icon-button refresh-button" data-refresh-auth="opencode" aria-label="Refresh OpenCode providers" title="Refresh status"><svg><use href="#i-refresh"/></svg></button></div>
+            <div id="opencode-providers" class="provider-list" aria-live="polite"><p class="account-note">Checking providers…</p></div>
+            <button class="auth-button" data-login="opencode" hidden>Add provider</button>
           </div>
         </article>
       </section>
-      <footer class="home-footer"><svg><use href="#i-folder"/></svg><div><span>Çalışma klasörü</span><span id="cwd"></span></div></footer>
+      <footer class="home-footer"><svg><use href="#i-folder"/></svg><div><span>Working folder</span><span id="cwd"></span></div></footer>
     </div>
   </main>
   <section id="terminal-view" class="terminal-view" aria-label="Terminal" hidden>
     <div id="surface"></div>
   </section>
   </div>
-  <aside class="workspace-sidebar" aria-label="Çalışma alanı">
+  <aside class="workspace-sidebar" aria-label="Workspace">
     <div class="sidebar-brand"><span class="brand-logo-wrap">{{brandLogoSidebar}}</span><div><span class="version">0.20</span></div></div>
-    <button id="show-projects" class="rail-button project-switch" title="Projeler" aria-label="Projeler"><svg><use href="#i-folder"/></svg><span id="current-project">Projeler</span></button>
-    <button id="new-session" class="rail-button rail-primary" title="Yeni oturum" aria-label="Yeni oturum"><svg><use href="#i-plus"/></svg><span>Yeni oturum</span><span id="new-session-agent" class="rail-hint" hidden></span></button>
-    <button id="home-button" class="rail-button" title="Ana ekran" aria-label="Ana ekrana dön"><svg><use href="#i-back"/></svg><span>Ana ekran</span></button>
+    <button id="show-projects" class="rail-button project-switch" title="Projects" aria-label="Projects"><svg><use href="#i-folder"/></svg><span id="current-project">Projects</span></button>
+    <button id="new-session" class="rail-button rail-primary" title="New session" aria-label="New session"><svg><use href="#i-plus"/></svg><span>New session</span><span id="new-session-agent" class="rail-hint" hidden></span></button>
+    <button id="home-button" class="rail-button" title="Home" aria-label="Back to home"><svg><use href="#i-back"/></svg><span>Home</span></button>
       <div id="session-banner" class="session-banner" hidden>
-        <div><span class="live-dot"></span><span id="active-session">Açık oturum</span></div>
-        <div><button id="resume" class="text-button">Son oturuma dön <svg><use href="#i-arrow"/></svg></button></div>
+        <div><span class="live-dot"></span><span id="active-session">Open session</span></div>
+        <div><button id="resume" class="text-button">Resume last session <svg><use href="#i-arrow"/></svg></button></div>
       </div>
-    <nav id="session-tabs" class="session-tabs" aria-label="Terminal oturumları" hidden>
-      <p class="rail-caption">OTURUMLAR</p><div id="tabs" class="tabs-list" role="tablist" aria-label="Açık oturumlar" aria-orientation="vertical"></div>
+    <nav id="session-tabs" class="session-tabs" aria-label="Terminal sessions" hidden>
+      <p class="rail-caption">SESSIONS</p><div id="tabs" class="tabs-list" role="tablist" aria-label="Open sessions" aria-orientation="vertical"></div>
     </nav>
     <div class="sidebar-bottom">
       <div class="session-summary"><strong id="session-name">Terminal</strong><span id="session-mode" class="mode-badge">Normal</span><span id="session-project" class="session-project"></span><span id="status" role="status" aria-live="polite"></span></div>
-      <p class="rail-caption">GÖRÜNÜM</p>
-      <button class="rail-button appearance-trigger" data-settings="session" title="Bu oturumun görünümü" aria-label="Bu oturumun görünümü" aria-haspopup="dialog"><svg><use href="#i-palette"/></svg><span>Bu oturum</span></button>
-      <button class="rail-button" data-settings="global" title="Genel görünüm · Yeni oturumlar" aria-label="Genel görünüm" aria-haspopup="dialog"><svg><use href="#i-palette"/></svg><span>Genel görünüm</span></button>
-      <button id="rename-session" class="rail-button" title="Oturum adını değiştir" aria-label="Oturum adını değiştir" aria-haspopup="dialog"><svg><use href="#i-edit"/></svg><span>Oturum adı</span></button>
-      <button id="close-active-session" class="rail-button close-active" title="Oturumu kapat" aria-label="Oturumu kapat"><svg><use href="#i-close"/></svg><span>Oturumu kapat</span></button>
+      <p class="rail-caption">APPEARANCE</p>
+      <button class="rail-button appearance-trigger" data-settings="session" title="Session appearance" aria-label="Session appearance" aria-haspopup="dialog"><svg><use href="#i-palette"/></svg><span>This session</span></button>
+      <button class="rail-button" data-settings="global" title="Global appearance · New sessions" aria-label="Global appearance" aria-haspopup="dialog"><svg><use href="#i-palette"/></svg><span>Global appearance</span></button>
+      <button id="rename-session" class="rail-button" title="Rename session" aria-label="Rename session" aria-haspopup="dialog"><svg><use href="#i-edit"/></svg><span>Session name</span></button>
+      <button id="close-active-session" class="rail-button close-active" title="Close session" aria-label="Close session"><svg><use href="#i-close"/></svg><span>Close session</span></button>
     </div>
   </aside>
   </div>
   <dialog id="project-create-dialog" class="rename-dialog" aria-labelledby="project-create-title">
     <form id="project-create-form">
-      <div class="settings-heading"><h2 id="project-create-title">Yeni proje</h2><button id="project-create-cancel" type="button" class="icon-button" aria-label="Yeni projeden vazgeç"><svg><use href="#i-close"/></svg></button></div>
-      <label for="project-name">Proje adı</label><input id="project-name" type="text" maxlength="100" placeholder="Örneğin: web-uygulamam" required autocomplete="off" spellcheck="false">
-      <label class="project-location-label">Konum</label><button id="project-location" type="button" class="project-location"><svg><use href="#i-folder"/></svg><span id="project-parent"></span><span>Değiştir</span></button>
+      <div class="settings-heading"><h2 id="project-create-title">New project</h2><button id="project-create-cancel" type="button" class="icon-button" aria-label="Cancel new project"><svg><use href="#i-close"/></svg></button></div>
+      <label for="project-name">Project name</label><input id="project-name" type="text" maxlength="100" placeholder="e.g. my-web-app" required autocomplete="off" spellcheck="false">
+      <label class="project-location-label">Location</label><button id="project-location" type="button" class="project-location"><svg><use href="#i-folder"/></svg><span id="project-parent"></span><span>Change</span></button>
       <p id="project-destination" class="settings-note"></p><p id="project-create-error" class="feedback" role="alert" hidden></p>
-      <footer class="rename-actions"><button id="project-create-back" type="button" class="quiet-button">Vazgeç</button><button id="project-create-submit" type="submit" class="appearance-done">Oluştur ve aç</button></footer>
+      <footer class="rename-actions"><button id="project-create-back" type="button" class="quiet-button">Cancel</button><button id="project-create-submit" type="submit" class="appearance-done">Create and open</button></footer>
     </form>
   </dialog>
   <dialog id="rename-dialog" class="rename-dialog" aria-labelledby="rename-title">
     <form id="rename-form">
-      <div class="settings-heading"><h2 id="rename-title">Oturum adı</h2><button id="cancel-rename" type="button" class="icon-button" aria-label="İsim değişikliğinden vazgeç"><svg><use href="#i-close"/></svg></button></div>
-      <label for="session-label">İsim <span class="optional-label">İsteğe bağlı</span></label>
+      <div class="settings-heading"><h2 id="rename-title">Session name</h2><button id="cancel-rename" type="button" class="icon-button" aria-label="Cancel rename"><svg><use href="#i-close"/></svg></button></div>
+      <label for="session-label">Name <span class="optional-label">Optional</span></label>
       <input id="session-label" name="session-label" type="text" maxlength="80" autocomplete="off" spellcheck="false" aria-describedby="rename-note">
-      <p id="rename-note" class="settings-note">Boş bırakırsan varsayılan ad kullanılır. En fazla 40 karakter.</p>
-      <footer class="rename-actions"><button id="reset-rename" type="button" class="quiet-button">Varsayılan adı kullan</button><button type="submit" class="appearance-done">Kaydet</button></footer>
+      <p id="rename-note" class="settings-note">Leave blank to use the default name. Up to 40 characters.</p>
+      <footer class="rename-actions"><button id="reset-rename" type="button" class="quiet-button">Use default name</button><button type="submit" class="appearance-done">Save</button></footer>
     </form>
   </dialog>
   <dialog id="mode-dialog" class="mode-dialog" aria-labelledby="mode-title">
-    <div class="dialog-top"><span id="mode-mark" class="agent-mark"></span><button id="close-mode" class="icon-button" aria-label="Kapat"><svg><use href="#i-close"/></svg></button></div>
-    <p id="mode-agent" class="eyebrow"></p><h2 id="mode-title">Başlatma modu</h2><p class="dialog-description">Seçimin kaydedilir; Başlat düğmesi doğrudan bu modla açar.</p>
+    <div class="dialog-top"><span id="mode-mark" class="agent-mark"></span><button id="close-mode" class="icon-button" aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+    <p id="mode-agent" class="eyebrow"></p><h2 id="mode-title">Launch mode</h2><p class="dialog-description">Launch uses the mode you save here.</p>
     <div class="mode-options">
-      <button class="mode-option" data-mode="normal"><span class="option-icon"><svg><use href="#i-shield"/></svg></span><span class="option-content"><strong>Normal</strong><span>Mevcut izin ayarlarıyla çalışır.</span><code id="command-normal">claude</code></span><svg class="option-arrow"><use href="#i-arrow"/></svg></button>
-      <button class="mode-option full-option" data-mode="full"><span class="option-icon"><svg><use href="#i-bolt"/></svg></span><span class="option-content"><strong>Tüm izinler açık</strong><span>İşlemler için izin onayı istemez.</span><code id="command-full">claude --dangerously-skip-permissions</code></span><svg class="option-arrow"><use href="#i-arrow"/></svg></button>
+      <button class="mode-option" data-mode="normal"><span class="option-icon"><svg><use href="#i-shield"/></svg></span><span class="option-content"><strong>Normal</strong><span>Uses the agent's current permission settings.</span><code id="command-normal">claude</code></span><svg class="option-arrow"><use href="#i-arrow"/></svg></button>
+      <button class="mode-option full-option" data-mode="full"><span class="option-icon"><svg><use href="#i-bolt"/></svg></span><span class="option-content"><strong>Full access</strong><span>Runs without prompting for permissions.</span><code id="command-full">claude --dangerously-skip-permissions</code></span><svg class="option-arrow"><use href="#i-arrow"/></svg></button>
     </div>
     <p id="launch-error" class="feedback" role="status" hidden></p>
   </dialog>
   <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-title">
-    <div class="settings-heading"><div><span id="appearance-scope" class="eyebrow">YENİ OTURUMLAR</span><h2 id="appearance-title">Genel görünüm</h2></div><button id="close-appearance" class="icon-button" aria-label="Görünümü kapat"><svg><use href="#i-close"/></svg></button></div>
+    <div class="settings-heading"><div><span id="appearance-scope" class="eyebrow">NEW SESSIONS</span><h2 id="appearance-title">Global appearance</h2></div><button id="close-appearance" class="icon-button" aria-label="Close appearance settings"><svg><use href="#i-close"/></svg></button></div>
     <div class="appearance-layout">
-      <section class="palette-library" aria-label="Renk paletleri">
-        <div class="library-heading"><h3>Renk paletleri</h3><span id="palette-total" class="count-badge"></span></div>
-        <div class="palette-toolbar"><input id="palette-search" type="search" placeholder="Palet ara… Dracula, Nord, Tokyo" aria-label="Palet ara" autocomplete="off"><button id="random-palette" class="palette-random">↻ Rastgele</button></div>
-        <div class="palette-filter-row"><div class="palette-filters" aria-label="Palet türü"><button data-palette-filter="all" aria-pressed="true">Tümü</button><button data-palette-filter="dark" aria-pressed="false">Koyu</button><button data-palette-filter="light" aria-pressed="false">Açık</button><button data-palette-filter="favorites" aria-pressed="false">★ Favoriler</button></div><span id="palette-results" aria-live="polite"></span></div>
-        <p class="section-caption">HIZLI SEÇİM</p><div id="palette-presets" class="palette-presets"></div>
-        <p class="section-caption">PALET KATALOĞU</p><div id="palette-grid" class="palette-grid"></div>
-        <div class="palette-pagination"><button id="palette-previous" class="quiet-button" aria-label="Önceki palet sayfası">← Önceki</button><span id="palette-page" aria-live="polite"></span><button id="palette-next" class="quiet-button" aria-label="Sonraki palet sayfası">Sonraki →</button></div>
+      <section class="palette-library" aria-label="Color palettes">
+        <div class="library-heading"><h3>Color palettes</h3><span id="palette-total" class="count-badge"></span></div>
+        <div class="palette-toolbar"><input id="palette-search" type="search" placeholder="Search palettes… Dracula, Nord, Tokyo" aria-label="Search palettes" autocomplete="off"><button id="random-palette" class="palette-random">↻ Random</button></div>
+        <div class="palette-filter-row"><div class="palette-filters" aria-label="Palette filter"><button data-palette-filter="all" aria-pressed="true">All</button><button data-palette-filter="dark" aria-pressed="false">Dark</button><button data-palette-filter="light" aria-pressed="false">Light</button><button data-palette-filter="favorites" aria-pressed="false">★ Favorites</button></div><span id="palette-results" aria-live="polite"></span></div>
+        <p class="section-caption">PRESETS</p><div id="palette-presets" class="palette-presets"></div>
+        <p class="section-caption">PALETTE CATALOG</p><div id="palette-grid" class="palette-grid"></div>
+        <div class="palette-pagination"><button id="palette-previous" class="quiet-button" aria-label="Previous palette page">← Previous</button><span id="palette-page" aria-live="polite"></span><button id="palette-next" class="quiet-button" aria-label="Next palette page">Next →</button></div>
         <p id="palette-error" class="settings-note" hidden></p>
       </section>
       <aside class="appearance-controls">
-        <div class="palette-heading"><span>Canlı önizleme</span><span id="selected-palette" aria-live="polite">Özel renkler</span></div>
-        <button id="favorite-toggle" class="favorite-toggle" aria-pressed="false">☆ Favorilere ekle</button>
-        <div id="type-preview" class="type-preview"><div class="preview-heading"><span>ÖNİZLEME</span><span>Aa</span></div><code><span class="preview-prompt">›</span> Örnek metin<br>ğüşiöç 0123456789<br>const value = 42;<span class="preview-cursor">▌</span></code></div>
-        <label class="color-field"><span>Arka plan</span><span class="color-control"><span id="background-value">#1F2427</span><input id="background" type="color" value="#1f2427"></span></label>
-        <label class="color-field"><span>Yazı rengi</span><span class="color-control"><span id="foreground-value">#E8EEEB</span><input id="foreground" type="color" value="#e8eeeb"></span></label>
-        <label class="font-field"><span>Yazı tipi <span class="bundled-font-count">24 hazır</span></span><select id="font" aria-label="Yazı tipi"></select></label>
-        <label class="font-size-field" for="font-size"><span>Yazı boyutu</span><output id="font-size-value" for="font-size">14 px</output><input id="font-size" type="range" min="10" max="28" step="1" value="14"></label>
-        <p id="font-note" class="font-note">24 yazı tipi uygulamayla birlikte gelir; ayrıca kurulum gerekmez.</p>
-        <p id="appearance-note" class="settings-note">Bundan sonra açılan oturumlara uygulanır.</p>
-        <p class="cli-color-note">Araçların kendi verdiği vurgu ve mesaj renkleri farklı kalabilir.</p>
+        <div class="palette-heading"><span>Live preview</span><span id="selected-palette" aria-live="polite">Custom colors</span></div>
+        <button id="favorite-toggle" class="favorite-toggle" aria-pressed="false">☆ Add to favorites</button>
+        <div id="type-preview" class="type-preview"><div class="preview-heading"><span>PREVIEW</span><span>Aa</span></div><code><span class="preview-prompt">›</span> Sample text<br>Aa Bb Cc 0123456789<br>const value = 42;<span class="preview-cursor">▌</span></code></div>
+        <label class="color-field"><span>Background</span><span class="color-control"><span id="background-value">#1F2427</span><input id="background" type="color" value="#1f2427"></span></label>
+        <label class="color-field"><span>Text color</span><span class="color-control"><span id="foreground-value">#E8EEEB</span><input id="foreground" type="color" value="#e8eeeb"></span></label>
+        <label class="font-field"><span>Font <span class="bundled-font-count">24 bundled</span></span><select id="font" aria-label="Font"></select></label>
+        <label class="font-size-field" for="font-size"><span>Font size</span><output id="font-size-value" for="font-size">14 px</output><input id="font-size" type="range" min="10" max="28" step="1" value="14"></label>
+        <p id="font-note" class="font-note">24 bundled fonts are available without installation.</p>
+        <p id="appearance-note" class="settings-note">Applies to new sessions.</p>
+        <p class="cli-color-note">Agent output can still use its own colors.</p>
       </aside>
     </div>
-    <footer class="appearance-footer"><span>Seçimlerin anında uygulanır.</span><button id="done-appearance" class="appearance-done">Tamam</button></footer>
+    <footer class="appearance-footer"><span>Changes apply immediately.</span><button id="done-appearance" class="appearance-done">Done</button></footer>
   </dialog>
   <script nonce="{{nonce}}" src="{{xterm}}"></script>
   <script nonce="{{nonce}}" src="{{fit}}"></script>

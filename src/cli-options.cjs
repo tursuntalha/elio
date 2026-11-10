@@ -8,9 +8,9 @@ function parseArguments(args, currentDirectory = process.cwd()) {
   if (args.length === 1 && args[0] === '--setup-shortcut') return { action: 'setup-shortcut' };
   const window = args.includes('--window');
   const positional = args.filter(argument => argument !== '--window');
-  if (args.filter(argument => argument === '--window').length > 1 || positional.length > 1 || positional[0]?.startsWith('-')) throw new Error('Kullanım: elio [--window] [klasör]');
+  if (args.filter(argument => argument === '--window').length > 1 || positional.length > 1 || positional[0]?.startsWith('-')) throw new Error('Usage: elio [--window] [folder]');
   const cwd = path.resolve(currentDirectory, positional[0] || '.');
-  if (!fs.statSync(cwd, { throwIfNoEntry: false })?.isDirectory()) throw new Error('Çalışma klasörü bulunamadı: ' + cwd);
+  if (!fs.statSync(cwd, { throwIfNoEntry: false })?.isDirectory()) throw new Error('Working folder not found: ' + cwd);
   return { action: window ? 'window' : 'terminal', cwd };
 }
 module.exports = { parseArguments };

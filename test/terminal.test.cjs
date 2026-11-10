@@ -63,7 +63,7 @@ test('normal launch never adds permission bypass flags; invalid modes are reject
   assert.deepEqual(modeArguments('claude', 'full'), ['--dangerously-skip-permissions']);
   assert.deepEqual(modeArguments('codex', 'full'), ['--yolo']);
   assert.deepEqual(modeArguments('opencode', 'normal'), []);
-  assert.throws(() => modeArguments('opencode', 'full'), /tüm izinler/);
+  assert.throws(() => modeArguments('opencode', 'full'), /full access/);
   assert.throws(() => modeArguments('claude', '--other-flag'));
   assert.throws(() => modeArguments('unknown', 'full'));
 });

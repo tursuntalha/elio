@@ -12,7 +12,7 @@ for (const font of fonts) {
   const pkg = JSON.parse(fs.readFileSync(path.join(folder, 'package.json')));
   const family = 'AT ' + font.name, files = [];
   const subsets = new Set(['latin', 'latin-ext', 'symbols2']);
-  if (!metadata.subsets.includes('latin-ext')) throw new Error(font.name + ': Turkish character subset is required');
+  if (!metadata.subsets.includes('latin-ext')) throw new Error(font.name + ': Latin Extended subset is required');
   const target = path.join(output, font.package); fs.mkdirSync(target, { recursive: true });
   const weights = [...new Set([400, metadata.weights.includes(700) ? 700 : Math.max(...metadata.weights)])];
   for (const style of metadata.styles) for (const weight of weights) {

@@ -23,7 +23,7 @@ function appearance(value = {}) {
 }
 
 function findExecutable(agent) {
-  if (!Object.hasOwn(AGENTS, agent)) throw new Error('Geçersiz araç seçimi.');
+  if (!Object.hasOwn(AGENTS, agent)) throw new Error('Invalid agent.');
   const pathKey = Object.keys(process.env).find(key => key.toLowerCase() === 'path');
   const directories = (process.env[pathKey] || '').split(path.delimiter);
   directories.push(path.join(os.homedir(), '.local', 'bin'), path.join(os.homedir(), '.opencode', 'bin'));
@@ -42,14 +42,14 @@ function findExecutable(agent) {
       } catch { /* Continue looking through PATH. */ }
     }
   }
-  throw new Error(`${AGENTS[agent]} bulunamadı. Önce aracı kurup Elio'yu yeniden açın.`);
+  throw new Error(`${AGENTS[agent]} was not found. Install it and reopen Elio.`);
 }
 
 function modeArguments(agent, mode = 'normal') {
-  if (!Object.hasOwn(AGENTS, agent) || !['normal', 'full', 'login'].includes(mode)) throw new Error('Geçersiz çalışma modu.');
+  if (!Object.hasOwn(AGENTS, agent) || !['normal', 'full', 'login'].includes(mode)) throw new Error('Invalid session mode.');
   if (mode === 'normal') return [];
   if (mode === 'login') return [...LOGIN_ARGUMENTS[agent]];
-  if (!Object.hasOwn(FULL_ACCESS_FLAGS, agent)) throw new Error(`${AGENTS[agent]} için tüm izinler modu yok.`);
+  if (!Object.hasOwn(FULL_ACCESS_FLAGS, agent)) throw new Error(`${AGENTS[agent]} does not support full access mode.`);
   return [FULL_ACCESS_FLAGS[agent]];
 }
 

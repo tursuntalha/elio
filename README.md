@@ -1,12 +1,12 @@
 # Elio
 
-Claude Code, Codex ve OpenCode'u tek yerden açan, özelleştirilebilir bir Windows terminali. Birden fazla oturumu sekmelerde çalıştırabilir, oturumlara ad verebilir ve temaları favorilere ekleyebilirsin.
+Elio is a customizable Windows terminal workspace for Claude Code, Codex, and OpenCode. Run multiple sessions in tabs, name them, and save your favorite themes.
 
-![Elio ana ekranı](assets/screenshot.png)
+![Elio home screen](assets/screenshot.png)
 
-## Kurulum
+## Installation
 
-Windows 10 veya 11, Git ve Node.js 22.12+ gerekir. Kullanacağın agent'ın komutu terminalde çalışıyor olmalı.
+You need Windows 10 or 11, Git, and Node.js 22.12 or later. The agent you want to use must already be available in your terminal.
 
 ```powershell
 git clone https://github.com/tursuntalha/elio.git
@@ -15,12 +15,12 @@ npm ci
 npm link
 ```
 
-## Kullanım
+## Usage
 
-- `elio` bulunduğun terminalde ve klasörde açılır.
-- `elio --window` ayrı pencere açar ve son projeleri gösterir.
-- `elio --setup-shortcut` masaüstü ve Başlat menüsü kısayollarını oluşturur.
+- `elio` opens in the current terminal and folder.
+- `elio --window` opens a desktop window with your recent projects.
+- `elio --setup-shortcut` creates desktop and Start menu shortcuts.
 
-Oturuma özel görünüm anında uygulanır. Genel görünüm yeni oturumlarda kullanılır. Ayrı pencerede yazı tipini de seçebilirsin.
+Session appearance changes apply immediately. Global appearance applies to new sessions. In the desktop window, you can also choose a font.
 
-[MIT](LICENSE) · [Paletler](data/Gogh-LICENSE-MIT.txt) · [Yazı tipleri](assets/fonts) · [Agent simgeleri](assets/brands/LICENSE.txt)
+[MIT](LICENSE) · [Palettes](data/Gogh-LICENSE-MIT.txt) · [Fonts](assets/fonts) · [Agent icons](assets/brands/LICENSE.txt)

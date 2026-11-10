@@ -22,7 +22,7 @@ test('project history deduplicates, persists, keeps missing entries removable an
   assert.equal(reopened.list()[0].available, true);
   fs.renameSync(b, b + '-moved');
   assert.equal(store.list()[1].available, false);
-  assert.throws(() => store.remember(b), /bulunamadı/);
+  assert.throws(() => store.remember(b), /missing or inaccessible/);
   store.remove(b); assert.equal(store.list().length, 1);
   store.remove(a); assert.equal(store.list().length, 0); assert.ok(fs.statSync(a).isDirectory());
 });
@@ -32,7 +32,7 @@ test('new projects create only a fresh child folder and reject traversal, reserv
   assert.equal(project.path, fs.realpathSync.native(path.join(root, 'Yeni çalışma')));
   assert.deepEqual(fs.readdirSync(project.path), []);
   fs.writeFileSync(path.join(a, 'existing.txt'), 'keep');
-  assert.throws(() => store.create(path.basename(a), root), /aynı isimde/);
+  assert.throws(() => store.create(path.basename(a), root), /already exists/);
   assert.equal(fs.readFileSync(path.join(a, 'existing.txt'), 'utf8'), 'keep');
   for (const name of ['..', '../escape', '..\\escape', 'CON', 'nul.txt', 'test.', 'test ', '', 'a/b']) assert.throws(() => store.create(name, root));
   assert.throws(() => store.create('valid', path.join(root, 'missing')));

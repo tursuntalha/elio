@@ -29,14 +29,14 @@ function createLaunchPreferences(directory) {
     read,
     readDefault,
     set(agent, mode) {
-      if (!Object.hasOwn(AGENTS, agent) || !['normal', 'full'].includes(mode) || (mode === 'full' && !Object.hasOwn(FULL_ACCESS_FLAGS, agent))) throw new Error('Geçersiz başlatma modu.');
+      if (!Object.hasOwn(AGENTS, agent) || !['normal', 'full'].includes(mode) || (mode === 'full' && !Object.hasOwn(FULL_ACCESS_FLAGS, agent))) throw new Error('Invalid launch mode.');
       const agents = { ...read(), [agent]: mode };
       save(agents, readDefault());
       return agents;
     },
-    // The agent that "Yeni oturum" opens directly. null means: show the picker every time.
+    // The agent that "New session" opens directly. null means: show the picker every time.
     setDefault(agent) {
-      if (agent !== null && !Object.hasOwn(AGENTS, agent)) throw new Error('Geçersiz varsayılan araç.');
+      if (agent !== null && !Object.hasOwn(AGENTS, agent)) throw new Error('Invalid default agent.');
       save(read(), agent);
       return agent;
     }

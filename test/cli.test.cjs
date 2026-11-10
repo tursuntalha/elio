@@ -27,5 +27,5 @@ test('help and version do not start the desktop application', () => {
   assert.equal(compatibility.status, 0); assert.equal(compatibility.stdout.trim(), result.stdout.trim());
   const help = spawnSync(process.execPath, [bin, '--help'], { encoding: 'utf8' });
   assert.equal(help.status, 0);
-  assert.match(help.stdout, /elio \[klasör\]/);
+  assert.match(help.stdout, /elio \[folder\]/);
 });

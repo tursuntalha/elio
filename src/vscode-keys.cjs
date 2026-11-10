@@ -13,7 +13,7 @@ function installVSCodeKeys(filename = vscodeKeybindingsFile()) {
   const exists = fs.existsSync(filename);
   let text = exists ? fs.readFileSync(filename, 'utf8') : '[\n]\n';
   const errors = [], entries = parse(text, errors, { allowTrailingComma: true });
-  if (errors.length || !Array.isArray(entries)) throw new Error('VS Code kısayol dosyası geçerli bir liste değil; dosyaya dokunulmadı.');
+  if (errors.length || !Array.isArray(entries)) throw new Error('VS Code keybindings must be a valid list. The file was left unchanged.');
   const eol = text.includes('\r\n') ? '\r\n' : '\n';
   let added = 0;
   for (const binding of bindings) {

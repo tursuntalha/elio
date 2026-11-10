@@ -16,8 +16,15 @@ test('favorites persist ready and custom pairs, normalize duplicates and read ch
   const result = store.toggle(pair, 'Dracula');
   assert.equal(result.added, true); assert.equal(result.favorites[0].background, '#282a36');
   const second = createFavorites(directory); assert.deepEqual(second.read(), result.favorites);
-  assert.equal(second.toggle({ background: '#123456', foreground: '#abcdef' }).favorites[1].name, 'Özel tema 1');
-  assert.equal(store.read().length, 2);
+  assert.equal(second.toggle({ background: '#123456', foreground: '#abcdef' }).favorites[1].name, 'Custom theme 1');
+  const filename = path.join(directory, 'favorites.json');
+  const original = fs.readFileSync(filename, 'utf8');
+  fs.writeFileSync(filename, original.replace('Custom theme 1', 'Özel tema 1'));
+  assert.equal(store.read()[1].name, 'Custom theme 1');
+  assert.equal(fs.readFileSync(filename, 'utf8'), original.replace('Custom theme 1', 'Özel tema 1'));
+  const nextPair = { background: '#111111', foreground: '#eeeeee' };
+  assert.equal(second.toggle(nextPair).favorites[2].name, 'Custom theme 2');
+  assert.equal(second.toggle(nextPair).added, false);
   assert.equal(store.toggle({ background: '#282a36', foreground: '#f8f8f2' }).added, false);
   assert.equal(second.read().length, 1);
   const before = fs.readFileSync(path.join(directory, 'favorites.json'), 'utf8');
@@ -36,7 +43,7 @@ test('terminal favorites survive a new UI and apply colors without changing font
     ui.showTheme('global'); ui.action('palette:dracula'); ui.action('favorite-toggle');
     assert.equal(ui.favorites.length, 1); assert.equal(preferences.read().background, '#101010');
     ui.action('custom'); ui.selectColor(43); ui.action('foreground'); ui.selectColor(145); ui.action('favorite-toggle');
-    assert.equal(ui.favorites.length, 2); assert.equal(ui.favorites[1].name, 'Özel tema 1');
+    assert.equal(ui.favorites.length, 2); assert.equal(ui.favorites[1].name, 'Custom theme 1');
     ui.dismissModal();
   } finally { ui.dispose(); }
   const reopened = new TerminalUI({ readAuthStatus: async () => ({ state: 'unknown' }), readAuthStatus: async () => ({ state: 'unknown' }), cwd: process.cwd(), preferences, favorites: createFavorites(directory) });

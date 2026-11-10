@@ -2,12 +2,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function projectDirectory(value) {
-  if (typeof value !== 'string' || !value.trim() || !path.isAbsolute(value)) throw new Error('Geçerli bir proje klasörü seç.');
+  if (typeof value !== 'string' || !value.trim() || !path.isAbsolute(value)) throw new Error('Choose a valid project folder.');
   let directory;
   try {
     directory = fs.realpathSync.native(value);
     if (!fs.statSync(directory).isDirectory()) throw new Error();
-  } catch { throw new Error('Proje klasörü bulunamadı veya erişilemiyor.'); }
+  } catch { throw new Error('Project folder is missing or inaccessible.'); }
   return directory;
 }
 function createProjects(directory) {
@@ -48,20 +48,20 @@ function createProjects(directory) {
   return {
     list, remember,
     remove(value) {
-      if (typeof value !== 'string' || !path.isAbsolute(value)) throw new Error('Geçersiz proje.');
+      if (typeof value !== 'string' || !path.isAbsolute(value)) throw new Error('Invalid project.');
       write(read().filter(item => key(item.path) !== key(value)));
       return list();
     },
     create(name, parent) {
-      if (typeof name !== 'string' || !name.trim() || name.length > 100 || /[<>:"/\\|?*\x00-\x1f]/.test(name) || /[. ]$/.test(name) || /^\.{1,2}$/.test(name) || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name.trim())) throw new Error('Geçerli bir klasör adı yaz.');
+      if (typeof name !== 'string' || !name.trim() || name.length > 100 || /[<>:"/\\|?*\x00-\x1f]/.test(name) || /[. ]$/.test(name) || /^\.{1,2}$/.test(name) || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name.trim())) throw new Error('Enter a valid folder name.');
       const folder = path.join(projectDirectory(parent), name.trim());
       try { fs.mkdirSync(folder); }
       catch (error) {
-        if (error.code === 'EEXIST') throw new Error('Bu konumda aynı isimde bir klasör veya dosya var. Proje aç seçeneğini kullanabilirsin.');
-        throw new Error('Proje klasörü oluşturulamadı. Başka bir konum seç.');
+        if (error.code === 'EEXIST') throw new Error('A file or folder with this name already exists. Use Open project to open an existing folder.');
+        throw new Error('Could not create the project folder. Choose another location.');
       }
       try { return remember(folder); }
-      catch { throw new Error('Klasör oluşturuldu fakat son projelere kaydedilemedi. Proje aç seçeneğiyle açabilirsin.'); }
+      catch { throw new Error('The folder was created but could not be added to recent projects. Use Open project to open it.'); }
     }
   };
 }

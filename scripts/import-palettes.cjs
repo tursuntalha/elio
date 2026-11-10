@@ -12,7 +12,7 @@ function publicAuthor(value) {
 
 async function download(url, json = false) {
   const response = await fetch(url, { headers: { 'User-Agent': 'agent-terminal-palette-importer' }, signal: AbortSignal.timeout(30000) });
-  if (!response.ok) throw new Error(`İndirme başarısız: ${response.status} ${url}`);
+  if (!response.ok) throw new Error(`Download failed: ${response.status} ${url}`);
   return json ? response.json() : response.text();
 }
 async function main() {
@@ -20,7 +20,7 @@ async function main() {
   const previous = JSON.parse(fs.readFileSync(filename, 'utf8'));
   const revision = previous.upstream?.revision && !process.argv.includes('--update') ? previous.upstream.revision
     : (await download('https://api.github.com/repos/Gogh-Co/Gogh/commits/master', true)).sha;
-  if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Geçersiz kaynak sürümü.');
+  if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Invalid upstream revision.');
   const raw = `https://raw.githubusercontent.com/Gogh-Co/Gogh/${revision}/`;
   const [themes, license] = await Promise.all([download(raw + 'data/themes.json', true), download(raw + 'LICENSE-MIT')]);
   const palettes = previous.palettes.filter(pair => !pair.id.startsWith('gogh-'));
@@ -40,9 +40,9 @@ async function main() {
   }
   const value = { schemaVersion: 1, featured: previous.featured, upstream: { repository, revision, json: raw + 'data/themes.json', license: 'MIT', importedAt: new Date().toISOString() }, palettes };
   validateCatalog(value);
-  if (palettes.length <= 100) throw new Error('Katalog 100’den fazla benzersiz çift içermeli.');
+  if (palettes.length <= 100) throw new Error('The catalog must contain more than 100 unique color pairs.');
   fs.writeFileSync(path.join(root, 'data', 'Gogh-LICENSE-MIT.txt'), license);
   fs.writeFileSync(filename, JSON.stringify(value, null, 2) + '\n');
-  console.log(`${palettes.length} benzersiz renk çifti kaydedildi. Kaynak: Gogh ${revision.slice(0, 8)}`);
+  console.log(`${palettes.length} unique color pairs saved. Source: Gogh ${revision.slice(0, 8)}`);
 }
 main().catch(error => { console.error(error.message); process.exitCode = 1; });

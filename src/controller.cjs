@@ -62,7 +62,7 @@ function createController(host, dependencies = {}) {
           break;
         case 'refreshAuth': void refreshAllAuth(message.agent); break;
         case 'defaultAgent':
-          if (message.agent !== null && !Object.hasOwn(AGENTS, message.agent)) throw new Error('Geçersiz varsayılan araç.');
+          if (message.agent !== null && !Object.hasOwn(AGENTS, message.agent)) throw new Error('Invalid default agent.');
           post({ type: 'defaultAgent', value: defaultAgent(await host.saveDefaultAgent(message.agent)) });
           break;
         case 'projectChoose': {
@@ -80,7 +80,7 @@ function createController(host, dependencies = {}) {
         case 'projectCreate': selectProject(host.projects.create(message.name, message.parent)); break;
         case 'appearance': await host.saveAppearance(appearance(message.value)); break;
         case 'launchMode':
-          if (!Object.hasOwn(AGENTS, message.agent) || !['normal', 'full'].includes(message.mode)) throw new Error('Geçersiz başlatma modu.');
+          if (!Object.hasOwn(AGENTS, message.agent) || !['normal', 'full'].includes(message.mode)) throw new Error('Invalid launch mode.');
           post({ type: 'launchModes', value: await host.saveLaunchMode(message.agent, message.mode) });
           break;
         case 'getFavorites': post({ type: 'favorites', value: await host.getFavorites?.() || [] }); break;
@@ -89,7 +89,7 @@ function createController(host, dependencies = {}) {
           post({ type: 'favorites', value: result.favorites }); break;
         }
         case 'start': {
-          if (!cwd) throw new Error('Önce bir proje seç.');
+          if (!cwd) throw new Error('Choose a project first.');
           const sessionId = message.sessionId;
           if (typeof sessionId !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(sessionId) || sessions.has(sessionId)) return;
           if (!Object.hasOwn(AGENTS, message.agent)) return;

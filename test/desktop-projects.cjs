@@ -71,7 +71,7 @@ if(process.argv.includes('app-server')) {
     fs.renameSync(created, created + '-moved');
     await page.locator('.recent-open').filter({ hasText: 'Yeni Türkçe proje' }).click();
     assert.ok(await page.locator('#project-error').isVisible());
-    await page.getByRole('button', { name: 'Yeni Türkçe proje projesini listeden kaldır' }).click();
+    await page.getByRole('button', { name: 'Remove Yeni Türkçe proje from recent projects' }).click();
     await page.waitForFunction(() => document.querySelectorAll('.recent-project').length === 1);
     assert.ok(fs.statSync(created + '-moved').isDirectory());
     assert.deepEqual(errors, []);

@@ -16,8 +16,8 @@ function runCli(agent, args, signal, timeout = 10000) {
     const child = spawn(command.command, command.args, { cwd: os.homedir(), windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, NO_COLOR: '1', FORCE_COLOR: '0' } });
     let stdout = '';
     const finish = (error, value) => { clearTimeout(timer); signal?.removeEventListener('abort', abort); if (error) reject(error); else resolve(value); };
-    const abort = () => { child.kill(); finish(new Error('Giriş sorgusu iptal edildi.')); };
-    const timer = setTimeout(() => { child.kill(); finish(new Error('Giriş bilgisi şu an alınamıyor.')); }, timeout);
+    const abort = () => { child.kill(); finish(new Error('Sign-in check was canceled.')); };
+    const timer = setTimeout(() => { child.kill(); finish(new Error('The sign-in check timed out.')); }, timeout);
     if (signal?.aborted) { abort(); return; }
     signal?.addEventListener('abort', abort, { once: true });
     const collect = chunk => { if (stdout.length < 131072) stdout += chunk; };

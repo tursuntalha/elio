@@ -58,7 +58,7 @@ test('session output, input, queries and closing remain independent in the termi
     ui.action('close:' + second.id); assert.equal(ui.modal.type, 'confirm'); ui.action('confirm');
     assert.ok(processes[1].killed); assert.ok(!processes[0].killed); assert.equal(ui.active, first);
     ui.resize(80, 24); assert.deepEqual([processes[0].cols, processes[0].rows], [58, 23]);
-    processes[0].events.emit('exit', { exitCode: 0 }); assert.ok(ui.render().plain().includes('Oturum bitti'));
+    processes[0].events.emit('exit', { exitCode: 0 }); assert.ok(ui.render().plain().includes('Session ended'));
     ui.action('close:' + first.id); assert.equal(ui.sessions.length, 0); assert.equal(ui.home, true);
   } finally { ui.dispose(); }
 });
@@ -152,11 +152,11 @@ test('right rail preserves terminal height, clips controls and supports compact 
       assert.ok(frame.hits.every(hit => hit.x >= 0 && hit.x + hit.cols <= cols));
       if (cols >= 80) {
         assert.ok(frame.hits.every(hit => hit.x >= ui.contentCols));
-        assert.ok(frame.plain().includes('F10 Çıkış'));
+        assert.ok(frame.plain().includes('F10 Exit'));
         const count = ui.active.process.inputs.length;
         ui.mouse({ button: 0, x: ui.contentCols + 1, y: 10, release: false });
         assert.equal(ui.active.process.inputs.length, count);
-      } else assert.ok(frame.plain().split('\n')[0].includes('F9 Menü'));
+      } else assert.ok(frame.plain().split('\n')[0].includes('F9 Menu'));
       ui.showTheme('session'); const preview = ui.render();
       assert.ok(preview.cells.flat().filter(cell => cell.bg === ui.modal.draft.background).length > 100);
       key(ui, 'escape');
@@ -194,7 +194,7 @@ test('color grid previews each field independently with mouse, arrows and satura
     assert.notEqual(current.appearance.foreground, original.foreground); assert.equal(current.appearance.background, background);
     ui.action('color:84'); const first = current.appearance.foreground; key(ui, 's');
     assert.notEqual(current.appearance.foreground, first); assert.equal(current.appearance.background, background);
-    frame = ui.render(); assert.ok(frame.plain().includes('Kendi renklerin'));
+    frame = ui.render(); assert.ok(frame.plain().includes('Custom colors'));
     assert.ok(frame.cells.flat().filter(cell => cell.bg === background).length > 300);
     assert.deepEqual(other.appearance, original); assert.equal(saved.length, 0);
     key(ui, 'p'); assert.equal(ui.modal.editor, 'presets');
@@ -215,7 +215,7 @@ test('color grid remains inside narrow screens and scrolls to every tone', () =>
       const frame = ui.render(), hit = frame.hits.find(hit => hit.action === 'color:' + ui.modal.colorIndex);
       assert.ok(hit); assert.ok(hit.y >= 9 && hit.y < rows - 3);
       assert.ok(frame.hits.every(hit => hit.x >= 0 && hit.x + hit.cols <= cols));
-      assert.ok(frame.plain().includes('Örnek metin'));
+      assert.ok(frame.plain().includes('Sample text'));
       key(ui, 'escape');
     }
   } finally { ui.dispose(); }

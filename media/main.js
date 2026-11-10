@@ -14,21 +14,21 @@
   let launchModes = { claude: 'normal', codex: 'normal', opencode: 'normal' }, savingLaunchMode = false;
   let defaultAgent = null;
   const authState = {};
-  // The default agent is what "Yeni oturum" opens directly; without one, the picker is shown.
+  // The default agent is what "New session" opens directly; without one, the picker is shown.
   function renderDefault() {
     for (const button of document.querySelectorAll('[data-default-agent]')) {
       const agent = button.dataset.defaultAgent, chosen = agent === defaultAgent;
       button.setAttribute('aria-pressed', String(chosen));
-      button.title = chosen ? 'Varsayılan araç (kaldırmak için tıkla)' : 'Varsayılan araç yap';
-      button.setAttribute('aria-label', chosen ? names[agent] + ' varsayılan araç, kaldırmak için tıkla' : names[agent] + ' aracını varsayılan yap');
+      button.title = chosen ? 'Remove default agent' : 'Set as default agent';
+      button.setAttribute('aria-label', chosen ? `Remove ${names[agent]} as the default agent` : `Set ${names[agent]} as the default agent`);
       button.closest('.agent-card').classList.toggle('is-default', chosen);
     }
     const hint = byId('new-session-agent'), button = byId('new-session');
     hint.hidden = !defaultAgent; hint.textContent = defaultAgent ? names[defaultAgent] : '';
-    button.title = button.ariaLabel = defaultAgent ? 'Yeni oturum · ' + names[defaultAgent] : 'Yeni oturum';
+    button.title = button.ariaLabel = defaultAgent ? 'New session · ' + names[defaultAgent] : 'New session';
     byId('default-hint').textContent = defaultAgent
-      ? '★ Varsayılan: ' + names[defaultAgent] + '. “Yeni oturum” bunu doğrudan açar; farklı bir araç için aşağıdan seç. Yıldıza tıklayarak değiştirebilir veya kaldırabilirsin.'
-      : 'Her yeni oturumda aynı aracı açmak için bir kartın yıldızına tıkla.';
+      ? '★ Default: ' + names[defaultAgent] + '. New session opens this agent. Click its star to clear the default.'
+      : 'Click an agent\'s star to make it the default for new sessions.';
   }
   function renderAuth(agent) {
     const value = authState[agent];
@@ -40,7 +40,7 @@
         for (const name of value.providers) { const chip = document.createElement('span'); chip.className = 'provider-chip'; chip.textContent = name; box.append(chip); }
       } else {
         const note = document.createElement('p'); note.className = 'account-note';
-        note.textContent = missing ? 'OpenCode kurulu değil.' : value.state === 'unknown' ? 'Sağlayıcılar okunamadı.' : 'Bağlı sağlayıcı yok.';
+        note.textContent = missing ? 'OpenCode is not installed.' : value.state === 'unknown' ? 'Could not load providers.' : 'No connected providers.';
         box.append(note);
       }
       document.querySelector('[data-login="opencode"]').hidden = missing;
@@ -49,11 +49,11 @@
     const box = byId(`${agent}-account`); box.replaceChildren();
     const status = document.createElement('div'); status.className = 'account-status' + (value.state === 'signed-in' ? ' ok' : '');
     const text = document.createElement('span');
-    if (value.state === 'signed-in') { const dot = document.createElement('span'); dot.className = 'status-dot'; dot.setAttribute('aria-hidden', 'true'); text.append(dot, 'Giriş yapıldı'); }
-    else text.textContent = missing ? names[agent] + ' kurulu değil' : value.state === 'signed-out' ? 'Giriş yapılmamış' : 'Giriş durumu okunamadı';
+    if (value.state === 'signed-in') { const dot = document.createElement('span'); dot.className = 'status-dot'; dot.setAttribute('aria-hidden', 'true'); text.append(dot, 'Signed in'); }
+    else text.textContent = missing ? names[agent] + ' is not installed' : value.state === 'signed-out' ? 'Signed out' : 'Could not check sign-in status';
     status.append(text);
     if (value.state === 'signed-out') {
-      const button = document.createElement('button'); button.className = 'auth-button'; button.dataset.login = agent; button.textContent = 'Giriş yap'; status.append(button);
+      const button = document.createElement('button'); button.className = 'auth-button'; button.dataset.login = agent; button.textContent = 'Sign in'; status.append(button);
     }
     box.append(status);
   }
@@ -67,9 +67,9 @@
       const button = document.querySelector(`[data-launch-settings="${agent}"]`);
       if (button) {
         button.classList.toggle('full', full);
-        document.querySelector(`[data-launch-label="${agent}"]`).textContent = full ? 'Tüm izinler açık' : 'Normal';
+        document.querySelector(`[data-launch-label="${agent}"]`).textContent = full ? 'Full access' : 'Normal';
       }
-      document.querySelector(`[data-agent="${agent}"]`).title = names[agent] + ' · ' + (full ? 'Tüm izinler açık' : 'Normal');
+      document.querySelector(`[data-agent="${agent}"]`).title = names[agent] + ' · ' + (full ? 'Full access' : 'Normal');
     }
   }
   let currentProject = null, recentProjects = [], projectParent = '', projectBusy = false, previousView = 'home';
@@ -93,15 +93,15 @@
       const row = document.createElement('div'); row.className = 'recent-project';
       const open = document.createElement('button'); open.className = 'recent-open';
       open.title = project.path; open.dataset.projectPath = project.path;
-      const mark = document.createElement('span'); mark.className = 'recent-mark'; mark.textContent = project.name.slice(0, 2).toLocaleUpperCase('tr-TR'); mark.setAttribute('aria-hidden', 'true');
+      const mark = document.createElement('span'); mark.className = 'recent-mark'; mark.textContent = project.name.slice(0, 2).toLocaleUpperCase('en-US'); mark.setAttribute('aria-hidden', 'true');
       const text = document.createElement('span'); text.className = 'recent-copy';
       const name = document.createElement('strong'); name.textContent = project.name;
       const location = document.createElement('span'); location.textContent = project.path;
       text.append(name, location);
-      if (!project.available) { const missing = document.createElement('span'); missing.className = 'recent-missing'; missing.textContent = 'Klasör bulunamadı'; text.append(missing); open.dataset.unavailable = 'true'; }
+      if (!project.available) { const missing = document.createElement('span'); missing.className = 'recent-missing'; missing.textContent = 'Folder not found'; text.append(missing); open.dataset.unavailable = 'true'; }
       open.append(mark, text);
       open.addEventListener('click', () => { if (!projectBusy) { projectError(''); projectPending(true); host.postMessage({ type: 'projectRecent', path: project.path }); } });
-      const remove = document.createElement('button'); remove.className = 'icon-button recent-remove'; remove.title = 'Son projelerden kaldır'; remove.setAttribute('aria-label', project.name + ' projesini listeden kaldır');
+      const remove = document.createElement('button'); remove.className = 'icon-button recent-remove'; remove.title = 'Remove from recent projects'; remove.setAttribute('aria-label', `Remove ${project.name} from recent projects`);
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); const use = document.createElementNS('http://www.w3.org/2000/svg', 'use'); use.setAttribute('href', '#i-close'); svg.append(use); remove.append(svg);
       remove.addEventListener('click', () => { if (!projectBusy) { projectError(''); projectPending(true); host.postMessage({ type: 'projectRemove', path: project.path }); } });
       row.append(open, remove); list.append(row);
@@ -118,11 +118,11 @@
     currentProject = folder;
     byId('cwd').textContent = folder; byId('cwd').title = folder;
     byId('current-project').textContent = projectName(folder);
-    byId('show-projects').title = 'Projeler · ' + folder;
+    byId('show-projects').title = 'Projects · ' + folder;
   }
   function updateDestination() {
     byId('project-parent').textContent = projectParent;
-    byId('project-destination').textContent = byId('project-name').value.trim() ? projectParent.replace(/[\\/]+$/, '') + (projectParent.includes('\\') ? '\\' : '/') + byId('project-name').value.trim() : 'Proje bu konumda yeni bir klasör oluşturur.';
+    byId('project-destination').textContent = byId('project-name').value.trim() ? projectParent.replace(/[\\/]+$/, '') + (projectParent.includes('\\') ? '\\' : '/') + byId('project-name').value.trim() : 'A new folder will be created here.';
   }
   const fontLoads = new Map();
   let appearanceScope = 'global', appearanceTarget, saveTimer, frame;
@@ -152,9 +152,9 @@
     const option = fontOptions.find(option => option.id === id);
     if (!option?.bundled) return Promise.resolve();
     if (!fontLoads.has(id)) {
-      const sample = 'Aa ğüşiöç İı 0123456789 ─│';
+      const sample = 'Aa Bb Cc 0123456789 ─│';
       const loading = Promise.all(['400', '700', 'italic 400'].map(style => document.fonts.load(`${style} 16px "${option.family}"`, sample))).then(results => {
-        if (!results.flat().length) throw new Error('Yazı tipi yüklenemedi: ' + option.name);
+        if (!results.flat().length) throw new Error('Could not load font: ' + option.name);
       }).catch(error => { fontLoads.delete(id); throw error; });
       fontLoads.set(id, loading);
     }
@@ -162,10 +162,10 @@
   }
   function buildFontControls(options) {
     fontOptions = options; byId('font').replaceChildren();
-    document.querySelector('.bundled-font-count').textContent = options.filter(option => option.bundled).length + ' hazır';
+    document.querySelector('.bundled-font-count').textContent = options.filter(option => option.bundled).length + ' bundled';
     for (const bundled of [true, false]) {
       const group = document.createElement('optgroup');
-      group.label = bundled ? 'Uygulamayla gelen yazı tipleri' : 'Bilgisayarındaki yazı tipleri';
+      group.label = bundled ? 'Bundled fonts' : 'System fonts';
       for (const item of options.filter(option => option.bundled === bundled)) {
         const option = new Option(item.name, item.id); option.style.fontFamily = fonts[item.id]; group.append(option);
       }
@@ -196,9 +196,9 @@
     if (!session) return;
     byId('session-name').textContent = session.label;
     byId('session-project').textContent = projectName(session.cwd); byId('session-project').title = session.cwd;
-    byId('session-mode').textContent = session.mode === 'full' ? 'Tüm izinler açık' : session.mode === 'login' ? 'Giriş' : 'Normal';
+    byId('session-mode').textContent = session.mode === 'full' ? 'Full access' : session.mode === 'login' ? 'Sign-in' : 'Normal';
     byId('session-mode').classList.toggle('full', session.mode === 'full');
-    byId('status').textContent = session.state === 'launching' ? 'Açılıyor…' : session.state === 'running' ? 'Çalışıyor' : session.state === 'failed' ? 'Açılamadı' : 'Oturum kapandı';
+    byId('status').textContent = session.state === 'launching' ? 'Starting…' : session.state === 'running' ? 'Running' : session.state === 'failed' ? 'Failed to start' : 'Session ended';
   }
   function renderTabs() {
     const tabs = byId('tabs');
@@ -209,7 +209,7 @@
     document.querySelector('.session-summary').hidden = !sessions.has(activeId);
     byId('session-tabs').hidden = sessions.size === 0;
     byId('session-banner').hidden = sessions.size === 0;
-    byId('active-session').textContent = `${sessions.size} oturum açık`;
+    byId('active-session').textContent = `${sessions.size} open session${sessions.size === 1 ? '' : 's'}`;
     for (const session of sessions.values()) {
       const group = document.createElement('div');
       const selected = session.id === activeId && view === 'terminal';
@@ -226,7 +226,7 @@
       dot.className = 'tab-dot' + (session.state === 'launching' ? ' launching' : session.state !== 'running' ? ' ended' : '');
       dot.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span'); label.className = 'tab-label'; label.textContent = session.label;
-      const short = document.createElement('span'); short.className = 'tab-short'; short.textContent = (tabLetters[session.agent] || '?') + (session.mode === 'login' ? 'G' : session.defaultLabel.split(' ').at(-1)); short.setAttribute('aria-hidden', 'true');
+      const short = document.createElement('span'); short.className = 'tab-short'; short.textContent = (tabLetters[session.agent] || '?') + (session.mode === 'login' ? 'L' : session.defaultLabel.split(' ').at(-1)); short.setAttribute('aria-hidden', 'true');
       button.title = session.label + ' · ' + session.cwd; button.setAttribute('aria-label', session.label);
       button.append(dot, label, short);
       button.addEventListener('click', () => selectSession(session.id));
@@ -242,8 +242,8 @@
       });
       const close = document.createElement('button');
       close.className = 'tab-close';
-      close.setAttribute('aria-label', session.label + ' oturumunu kapat');
-      close.title = 'Oturumu kapat';
+      close.setAttribute('aria-label', `Close ${session.label}`);
+      close.title = 'Close session';
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       const use = document.createElementNS('http://www.w3.org/2000/svg', 'use'); use.setAttribute('href', '#i-close'); svg.append(use); close.append(svg);
       close.addEventListener('click', () => host.postMessage({ type: 'close', sessionId: session.id }));
@@ -294,7 +294,7 @@
     byId('surface').append(pane);
     const terminal = new Terminal({ cursorBlink: true, fontSize: 14, scrollback: 5000 });
     const fit = new FitAddon.FitAddon(); terminal.loadAddon(fit);
-    const label = mode === 'login' ? `${names[selectedAgent]} · giriş` : `${names[selectedAgent]} ${++counters[selectedAgent]}`;
+    const label = mode === 'login' ? `${names[selectedAgent]} · sign-in` : `${names[selectedAgent]} ${++counters[selectedAgent]}`;
     const session = { id, cwd: currentProject, agent: selectedAgent, mode, label, state: 'launching', appearance: { ...defaults }, terminal, fit, pane };
     session.defaultLabel = session.label;
     sessions.set(id, session);
@@ -324,16 +324,16 @@
     byId('type-preview').style.fontSize = value.fontSize + 'px';
     byId('palette-grid').style.setProperty('--palette-font', fonts[value.font] || 'monospace');
     byId('font-size-value').textContent = value.fontSize + ' px';
-    byId('font-note').textContent = fontOptions.find(option => option.id === value.font)?.bundled ? 'Uygulamayla birlikte gelir; internetsiz ve kurulum gerektirmeden kullanılır.' : 'Bu seçenek bilgisayarındaki yazı tipini kullanır.';
+    byId('font-note').textContent = fontOptions.find(option => option.id === value.font)?.bundled ? 'Available offline without installing a font.' : 'Uses a font installed on your computer.';
     void loadFont(value.font).catch(error => { byId('font-note').textContent = error.message; });
     byId('background-value').textContent = value.background.toUpperCase();
     byId('foreground-value').textContent = value.foreground.toUpperCase();
     const selected = PaletteCatalog.matching(catalog, value) || PaletteCatalog.matching({ palettes: favorites }, value);
     const favorite = PaletteCatalog.matching({ palettes: favorites }, value);
-    byId('favorite-toggle').textContent = favorite ? '★ Favorilerden çıkar' : '☆ Favorilere ekle';
+    byId('favorite-toggle').textContent = favorite ? '★ Remove from favorites' : '☆ Add to favorites';
     byId('favorite-toggle').setAttribute('aria-pressed', String(!!favorite));
     byId('favorite-toggle').disabled = favoriteSaving;
-    byId('selected-palette').textContent = selected?.name || 'Özel renkler';
+    byId('selected-palette').textContent = selected?.name || 'Custom colors';
     for (const button of document.querySelectorAll('[data-palette]')) button.setAttribute('aria-pressed', String(button.dataset.palette === selected?.id));
     for (const button of document.querySelectorAll('[data-library-palette]')) {
       const pair = [...catalog.palettes, ...favorites].find(pair => pair.id === button.dataset.libraryPalette);
@@ -354,12 +354,12 @@
   function buildPaletteControls(value) {
     catalog = value || { palettes: [], featured: [] };
     byId('palette-presets').replaceChildren();
-    byId('palette-total').textContent = catalog.palettes.length.toLocaleString('tr-TR') + ' renk çifti';
+    byId('palette-total').textContent = catalog.palettes.length.toLocaleString('en-US') + ' color pairs';
     for (const id of catalog.featured) {
       const pair = catalog.palettes.find(item => item.id === id);
       if (!pair) continue;
       const button = document.createElement('button'); button.className = 'palette-preset'; button.dataset.palette = pair.id;
-      button.setAttribute('aria-label', pair.name + ' paletini uygula'); button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', `Apply ${pair.name} palette`); button.setAttribute('aria-pressed', 'false');
       const swatch = document.createElement('span'); swatch.className = 'palette-swatch'; swatch.textContent = 'Aa'; swatch.style.backgroundColor = pair.background; swatch.style.color = pair.foreground;
       const name = document.createElement('span'); name.className = 'palette-name'; name.textContent = pair.name;
       button.append(swatch, name); button.addEventListener('click', () => choosePalette(pair)); byId('palette-presets').append(button);
@@ -374,17 +374,17 @@
     const grid = byId('palette-grid'); grid.replaceChildren();
     for (const pair of items.slice(palettePage * palettePageSize, (palettePage + 1) * palettePageSize)) {
       const button = document.createElement('button'); button.className = 'library-palette'; button.dataset.libraryPalette = pair.id;
-      button.setAttribute('aria-label', pair.name + ' paletini uygula'); button.setAttribute('aria-pressed', String(pair.background === byId('background').value && pair.foreground === byId('foreground').value));
+      button.setAttribute('aria-label', `Apply ${pair.name} palette`); button.setAttribute('aria-pressed', String(pair.background === byId('background').value && pair.foreground === byId('foreground').value));
       const sample = document.createElement('span'); sample.className = 'library-sample'; sample.style.backgroundColor = pair.background; sample.style.color = pair.foreground;
       const letters = document.createElement('span'); letters.textContent = 'Aa';
-      const example = document.createElement('span'); example.textContent = '› Merhaba, dünya.'; sample.append(letters, example);
+      const example = document.createElement('span'); example.textContent = '› Hello, world.'; sample.append(letters, example);
       const name = document.createElement('span'); name.className = 'library-name'; name.textContent = pair.name;
       const colors = document.createElement('span'); colors.className = 'library-colors'; colors.textContent = pair.background + ' / ' + pair.foreground;
       button.title = pair.name + '\n' + colors.textContent;
       button.append(sample, name, colors); button.addEventListener('click', () => choosePalette(pair)); grid.append(button);
     }
-    if (!items.length) { const empty = document.createElement('p'); empty.className = 'palette-empty'; empty.textContent = paletteFilter === 'favorites' ? 'Henüz favorin yok. Beğendiğin renkleri önizlemeden favorilere ekleyebilirsin.' : 'Aramana uygun palet yok. Başka bir ad deneyebilirsin.'; grid.append(empty); }
-    byId('palette-results').textContent = items.length.toLocaleString('tr-TR') + ' sonuç';
+    if (!items.length) { const empty = document.createElement('p'); empty.className = 'palette-empty'; empty.textContent = paletteFilter === 'favorites' ? 'No favorites yet. Use the preview to add a palette.' : 'No matching palettes. Try another search.'; grid.append(empty); }
+    byId('palette-results').textContent = `${items.length.toLocaleString('en-US')} result${items.length === 1 ? '' : 's'}`;
     byId('palette-page').textContent = items.length ? `${palettePage + 1} / ${pages}` : '0 / 0';
     byId('palette-previous').disabled = palettePage === 0;
     byId('palette-next').disabled = palettePage >= pages - 1;
@@ -395,9 +395,9 @@
     if (scope === 'session' && !sessions.has(activeId)) return;
     appearanceScope = scope; appearanceTarget = scope === 'session' ? activeId : undefined;
     const value = scope === 'global' ? defaults : sessions.get(appearanceTarget).appearance;
-    byId('appearance-title').textContent = scope === 'global' ? 'Genel görünüm' : 'Oturum görünümü';
-    byId('appearance-scope').textContent = scope === 'global' ? 'YENİ OTURUMLAR' : sessions.get(appearanceTarget).label.toLocaleUpperCase('tr-TR');
-    byId('appearance-note').textContent = scope === 'global' ? 'Bundan sonra açılan oturumlara uygulanır. Açık oturumlar değişmez.' : 'Yalnızca bu oturumda geçerlidir. Diğer oturumlar ve genel ayarlar değişmez.';
+    byId('appearance-title').textContent = scope === 'global' ? 'Global appearance' : 'Session appearance';
+    byId('appearance-scope').textContent = scope === 'global' ? 'NEW SESSIONS' : sessions.get(appearanceTarget).label.toLocaleUpperCase('en-US');
+    byId('appearance-note').textContent = scope === 'global' ? 'Applies to new sessions.' : 'Applies to this session only.';
     for (const key of ['background', 'foreground', 'font']) byId(key).value = value[key];
     byId('font-size').value = value.fontSize;
     paletteQuery = ''; paletteFilter = 'all'; palettePage = 0; byId('palette-search').value = '';
@@ -559,7 +559,7 @@
         if (message.operation === 'launchMode') {
           savingLaunchMode = false;
           for (const option of document.querySelectorAll('[data-mode]')) option.disabled = false;
-          byId('launch-error').textContent = 'Başlatma modu kaydedilemedi. ' + message.message; byId('launch-error').hidden = false;
+          byId('launch-error').textContent = 'Could not save launch mode. ' + message.message; byId('launch-error').hidden = false;
           break;
         }
         if (message.operation === 'favoriteToggle') { favoriteSaving = false; byId('favorite-toggle').disabled = false; }

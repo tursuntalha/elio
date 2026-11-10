@@ -17,7 +17,7 @@ test('saved launch modes persist independently and reach later terminal instance
   second.set('claude', 'full'); store.set('codex', 'normal');
   assert.deepEqual(second.read(), { claude: 'full', codex: 'normal', opencode: 'normal' });
   assert.throws(() => store.set('claude', 'yolo')); assert.throws(() => store.set('other', 'full'));
-  assert.throws(() => store.set('opencode', 'full'), /Geçersiz/); // OpenCode has no permission-bypass flag
+  assert.throws(() => store.set('opencode', 'full'), /Invalid/); // OpenCode has no permission-bypass flag
   store.set('opencode', 'normal');
   const ui = new TerminalUI({ readAuthStatus: async () => ({ state: 'unknown' }), readAuthStatus: async () => ({ state: 'unknown' }), cwd: directory, preferences: { read: () => ({}) }, launchPreferences: second });
   try {
@@ -64,7 +64,7 @@ test('default agent persists next to the launch modes, survives mode changes and
   store.set('codex', 'full'); // writing a mode must not drop the default
   assert.equal(store.readDefault(), 'opencode'); assert.equal(store.read().codex, 'full');
   store.setDefault('claude'); assert.equal(store.readDefault(), 'claude'); assert.equal(store.read().codex, 'full');
-  assert.throws(() => store.setDefault('gemini'), /Geçersiz/); assert.throws(() => store.setDefault(undefined), /Geçersiz/);
+  assert.throws(() => store.setDefault('gemini'), /Invalid/); assert.throws(() => store.setDefault(undefined), /Invalid/);
   assert.equal(store.setDefault(null), null); assert.equal(store.readDefault(), null);
   fs.writeFileSync(path.join(directory, 'launch.json'), JSON.stringify({ schemaVersion: 1, agents: {}, defaultAgent: 'nope' }));
   assert.equal(store.readDefault(), null);

@@ -35,7 +35,7 @@ test('default agent: F2 opens it directly, D sets and clears it on the focused c
     key(ui, 'tab'); key(ui, 'd');
     assert.equal(ui.defaultAgent, 'codex');
     const screen = ui.render().plain();
-    assert.ok(screen.includes('Codex ★')); assert.ok(screen.includes('Varsayılan: Codex')); assert.ok(!screen.includes('Claude Code ★'));
+    assert.ok(screen.includes('Codex ★')); assert.ok(screen.includes('Default: Codex')); assert.ok(!screen.includes('Claude Code ★'));
     key(ui, 'f2');
     assert.deepEqual(processes.map(item => [item.agent, item.mode]), [['codex', 'normal']]);
     assert.equal(ui.home, false);
@@ -59,7 +59,7 @@ test('default agent is remembered between runs and failing to save is reported, 
     key(second.ui, 'f2'); assert.equal(second.processes[0].agent, 'opencode');
     second.ui.launchPreferences = { read: () => ({}), readDefault: () => 'opencode', setDefault() { throw new Error('Disk full'); } };
     second.ui.action('home'); second.ui.action('default:claude');
-    assert.equal(second.ui.defaultAgent, 'opencode'); assert.match(second.ui.notice, /kaydedilemedi/);
+    assert.equal(second.ui.defaultAgent, 'opencode'); assert.match(second.ui.notice, /Could not save default agent/);
   } finally { second.ui.dispose(); }
 });
 
@@ -70,22 +70,22 @@ test('signed-out tools show a sign-in action that runs the login session, then r
   try {
     ui.refreshAuth(true); await settle();
     const frame = ui.render(), screen = frame.plain();
-    assert.ok(screen.includes('Giriş yapılmamış')); assert.ok(screen.includes('L Giriş yap'));
-    assert.ok(screen.includes('Sağlayıcı: 2 bağlı')); assert.ok(screen.includes('L Sağlayıcı ekle'));
+    assert.ok(screen.includes('Signed out')); assert.ok(screen.includes('L Sign in'));
+    assert.ok(screen.includes('Providers: 2')); assert.ok(screen.includes('L Add provider'));
     const login = frame.hits.find(hit => hit.action === 'login:claude');
     assert.ok(login); assert.ok(frame.hits.some(hit => hit.action === 'login:opencode'));
     // The button sits on top of the card's own start target.
     assert.ok(frame.hits.lastIndexOf(login) > frame.hits.findIndex(hit => hit.action === 'claude'));
     key(ui, 'l');
     assert.deepEqual([processes[0].agent, processes[0].mode], ['claude', 'login']);
-    assert.equal(ui.sessionLabel(ui.active), 'Claude Code giriş');
-    assert.ok(ui.render().plain().includes('Giriş'));
+    assert.equal(ui.sessionLabel(ui.active), 'Claude Code sign-in');
+    assert.ok(ui.render().plain().includes('Sign-in'));
     const before = reads.length; claude = 'signed-in';
     processes[0].events.emit('exit', { exitCode: 0 }); await settle();
     assert.ok(reads.length >= before + 3, 'all sign-in states are read again after the login session ends');
     assert.equal(ui.auth.claude.state, 'signed-in');
     ui.action('home');
-    assert.ok(!ui.render().plain().includes('L Giriş yap'));
+    assert.ok(!ui.render().plain().includes('L Sign in'));
     // Signed-in Claude/Codex ignore L; OpenCode can always add a provider.
     ui.focus = 0; key(ui, 'l'); assert.equal(processes.length, 1);
     ui.focus = 2; key(ui, 'l'); assert.deepEqual([processes[1].agent, processes[1].mode], ['opencode', 'login']);
@@ -97,7 +97,7 @@ test('a missing CLI is reported on its card instead of offering sign-in', async 
   try {
     ui.refreshAuth(true); await settle();
     const frame = ui.render(), screen = frame.plain();
-    assert.ok(screen.includes('Kurulu değil')); assert.ok(!frame.hits.some(hit => hit.action === 'login:codex'));
+    assert.ok(screen.includes('Not installed')); assert.ok(!frame.hits.some(hit => hit.action === 'login:codex'));
   } finally { ui.dispose(); }
 });
 
@@ -108,7 +108,7 @@ test('default marker and sign-in button fit the narrow and the tight layouts', a
     for (const [cols, rows] of [[54, 22], [80, 24], [110, 34]]) {
       ui.resize(cols, rows);
       const frame = ui.render(), screen = frame.plain();
-      assert.ok(screen.includes('L Giriş yap'), `${cols}x${rows} sign-in button`);
+      assert.ok(screen.includes('L Sign in'), `${cols}x${rows} sign-in button`);
       assert.ok(screen.includes('OpenCode ★'), `${cols}x${rows} default marker`);
       for (const hit of frame.hits.filter(item => item.action?.startsWith('login:'))) assert.ok(hit.x + hit.cols <= cols && hit.y < rows - 1);
     }
